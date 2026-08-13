@@ -1,9 +1,11 @@
 from pathlib import Path
 
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_prefix="ALGOPLATFORM_")
+
     project_name: str = "AlgoPlatform"
     version: str = "0.1.0"
     host: str = "0.0.0.0"
@@ -18,9 +20,6 @@ class Settings(BaseSettings):
     commission_bps: float = 1.0
     slippage_bps: float = 2.0
     borrow_cost_bps: float = 50.0
-
-    class Config:
-        env_prefix = "ALGOPLATFORM_"
 
 
 settings = Settings()
