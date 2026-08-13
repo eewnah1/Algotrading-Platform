@@ -6,7 +6,7 @@ An institutional-grade, open-source algorithmic trading platform built to rival 
 
 **Public no-auth dashboard:** https://carriers-travesti-janet-distinction.trycloudflare.com
 
-> Dashboard: live execution with market depth, order entry, risk telemetry, backtesting, 300+ strategy library with filters, AI strategy lab, reporting, data cleaning, operations, and system health.
+> Dashboard: live execution with market depth, order entry, risk telemetry, backtesting, 1000+ strategy library with filters, AI strategy lab, reporting, data cleaning, operations, and system health.
 
 ## Modules
 
@@ -16,7 +16,7 @@ An institutional-grade, open-source algorithmic trading platform built to rival 
 - **Reporting** — daily PnL, cost attribution, and drift analysis.
 - **Data Cleaning** — anomaly detection and repair for OHLCV data.
 - **Operations** — scheduled job scheduler with live logs.
-- **300 Strategy Catalog** — diverse technical, statistical, machine-learning, options, and macro strategies.
+- **1000 Strategy Catalog** — diverse technical, statistical, machine-learning, options, macro, factor, and volume strategies.
 
 ## Quick Start
 
@@ -33,7 +33,7 @@ Open `http://localhost:8000`.
 - `algoplatform/data/` — market data fetcher and data cleaner.
 - `algoplatform/execution/` — paper broker and portfolio manager.
 - `algoplatform/backtest/` — event-driven backtester and metrics.
-- `algoplatform/strategies/` — 300-strategy registry and signal runner.
+- `algoplatform/strategies/` — 1000-strategy registry and signal runner.
 - `algoplatform/lab/` — AI strategy lab.
 - `algoplatform/reporting/` — PnL and cost reporting.
 - `algoplatform/operations/` — scheduler and job monitor.
