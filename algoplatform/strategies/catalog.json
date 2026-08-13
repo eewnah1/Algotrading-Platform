@@ -1,0 +1,6837 @@
+[
+  {
+    "id": "sma_cross_equity_long_000",
+    "name": "Trend Sma Cross Equity Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 30,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on equity assets with long exposure.",
+    "tags": [
+      "technical",
+      "equity",
+      "long",
+      "sma_cross",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_equity_long_001",
+    "name": "Trend Ema Cross Equity Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 6,
+      "slow": 21,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on equity assets with long exposure.",
+    "tags": [
+      "ema_cross",
+      "quantitative",
+      "equity",
+      "long",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_equity_long_002",
+    "name": "Momentum Macd Equity Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 19,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on equity assets with long exposure.",
+    "tags": [
+      "momentum",
+      "systematic",
+      "equity",
+      "long",
+      "macd"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_equity_long_003",
+    "name": "MeanReversion Rsi Mean Revert Equity Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 10,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on equity assets with long exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "equity",
+      "long",
+      "meanreversion",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_equity_long_004",
+    "name": "MeanReversion Bollinger Revert Equity Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 14,
+      "std": 1.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on equity assets with long exposure.",
+    "tags": [
+      "machine_learning",
+      "bollinger_revert",
+      "equity",
+      "long",
+      "meanreversion"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_equity_long_005",
+    "name": "Breakout Breakout Equity Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 15,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on equity assets with long exposure.",
+    "tags": [
+      "equity",
+      "risk_parity",
+      "long",
+      "breakout"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_equity_long_006",
+    "name": "Breakout Donchian Breakout Equity Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 21,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on equity assets with long exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "factor",
+      "equity",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_equity_long_007",
+    "name": "Momentum Momentum 12 1 Equity Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 27,
+      "holding": 12
+    },
+    "description": "Momentum strategy using momentum_12_1 on equity assets with long exposure.",
+    "tags": [
+      "equity",
+      "momentum_12_1",
+      "long",
+      "momentum"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_equity_long_008",
+    "name": "Volatility Volatility Target Equity Long",
+    "category": "Volatility",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on equity assets with long exposure.",
+    "tags": [
+      "value",
+      "volatility_target",
+      "equity",
+      "volatility",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_equity_long_009",
+    "name": "StatArb Stat Arb Equity Long",
+    "category": "StatArb",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 29,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on equity assets with long exposure.",
+    "tags": [
+      "carry",
+      "equity",
+      "statarb",
+      "long",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_equity_long_010",
+    "name": "ML Ml Logreg Equity Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on equity assets with long exposure.",
+    "tags": [
+      "ml",
+      "equity",
+      "volatility",
+      "long",
+      "ml_logreg"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_equity_long_011",
+    "name": "ML Ml Xgb Equity Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on equity assets with long exposure.",
+    "tags": [
+      "ml",
+      "macro",
+      "ml_xgb",
+      "equity",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_equity_long_012",
+    "name": "Carry Carry Equity Long",
+    "category": "Carry",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 42,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on equity assets with long exposure.",
+    "tags": [
+      "carry",
+      "long",
+      "high_frequency",
+      "equity"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_equity_long_013",
+    "name": "Seasonality Seasonality Equity Long",
+    "category": "Seasonality",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 2,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on equity assets with long exposure.",
+    "tags": [
+      "long",
+      "equity",
+      "seasonality",
+      "intraday"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_equity_long_014",
+    "name": "Options Options Spread Equity Long",
+    "category": "Options",
+    "type": "long",
+    "asset_class": "equity",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on equity assets with long exposure.",
+    "tags": [
+      "options_spread",
+      "swing",
+      "options",
+      "equity",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_etf_long_015",
+    "name": "Trend Sma Cross Etf Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 45,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on etf assets with long exposure.",
+    "tags": [
+      "position",
+      "long",
+      "sma_cross",
+      "etf",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_etf_long_016",
+    "name": "Trend Ema Cross Etf Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 21,
+      "slow": 36,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on etf assets with long exposure.",
+    "tags": [
+      "ema_cross",
+      "multi_asset",
+      "long",
+      "etf",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_etf_long_017",
+    "name": "Momentum Macd Etf Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 34,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on etf assets with long exposure.",
+    "tags": [
+      "momentum",
+      "long",
+      "macd",
+      "etf",
+      "long_only"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_etf_long_018",
+    "name": "MeanReversion Rsi Mean Revert Etf Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 25,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on etf assets with long exposure.",
+    "tags": [
+      "market_neutral",
+      "rsi_mean_revert",
+      "long",
+      "meanreversion",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_etf_long_019",
+    "name": "MeanReversion Bollinger Revert Etf Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 29,
+      "std": 3.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on etf assets with long exposure.",
+    "tags": [
+      "bollinger_revert",
+      "long",
+      "event_driven",
+      "meanreversion",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_etf_long_020",
+    "name": "Breakout Breakout Etf Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 30,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on etf assets with long exposure.",
+    "tags": [
+      "breakout",
+      "long",
+      "etf",
+      "pairs"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_etf_long_021",
+    "name": "Breakout Donchian Breakout Etf Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 36,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on etf assets with long exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "long",
+      "calendar",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_etf_long_022",
+    "name": "Momentum Momentum 12 1 Etf Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 42,
+      "holding": 7
+    },
+    "description": "Momentum strategy using momentum_12_1 on etf assets with long exposure.",
+    "tags": [
+      "momentum",
+      "trend_following",
+      "momentum_12_1",
+      "long",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_etf_long_023",
+    "name": "Volatility Volatility Target Etf Long",
+    "category": "Volatility",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on etf assets with long exposure.",
+    "tags": [
+      "volatility_target",
+      "technical",
+      "volatility",
+      "long",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_etf_long_024",
+    "name": "StatArb Stat Arb Etf Long",
+    "category": "StatArb",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 44,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on etf assets with long exposure.",
+    "tags": [
+      "quantitative",
+      "statarb",
+      "long",
+      "etf",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_etf_long_025",
+    "name": "ML Ml Logreg Etf Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on etf assets with long exposure.",
+    "tags": [
+      "ml",
+      "systematic",
+      "long",
+      "ml_logreg",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_etf_long_026",
+    "name": "ML Ml Xgb Etf Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on etf assets with long exposure.",
+    "tags": [
+      "ml",
+      "ml_xgb",
+      "long",
+      "etf",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_etf_long_027",
+    "name": "Carry Carry Etf Long",
+    "category": "Carry",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 57,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on etf assets with long exposure.",
+    "tags": [
+      "carry",
+      "machine_learning",
+      "long",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_etf_long_028",
+    "name": "Seasonality Seasonality Etf Long",
+    "category": "Seasonality",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 5,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on etf assets with long exposure.",
+    "tags": [
+      "long",
+      "seasonality",
+      "risk_parity",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_etf_long_029",
+    "name": "Options Options Spread Etf Long",
+    "category": "Options",
+    "type": "long",
+    "asset_class": "etf",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on etf assets with long exposure.",
+    "tags": [
+      "options_spread",
+      "options",
+      "factor",
+      "long",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_futures_long_030",
+    "name": "Trend Sma Cross Futures Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 60,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on futures assets with long exposure.",
+    "tags": [
+      "momentum",
+      "long",
+      "sma_cross",
+      "futures",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_futures_long_031",
+    "name": "Trend Ema Cross Futures Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 16,
+      "slow": 51,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on futures assets with long exposure.",
+    "tags": [
+      "value",
+      "ema_cross",
+      "long",
+      "futures",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_futures_long_032",
+    "name": "Momentum Macd Futures Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 29,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on futures assets with long exposure.",
+    "tags": [
+      "momentum",
+      "carry",
+      "long",
+      "macd",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_futures_long_033",
+    "name": "MeanReversion Rsi Mean Revert Futures Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 19,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on futures assets with long exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "volatility",
+      "long",
+      "meanreversion",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_futures_long_034",
+    "name": "MeanReversion Bollinger Revert Futures Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 44,
+      "std": 2.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on futures assets with long exposure.",
+    "tags": [
+      "macro",
+      "bollinger_revert",
+      "long",
+      "meanreversion",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_futures_long_035",
+    "name": "Breakout Breakout Futures Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 45,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on futures assets with long exposure.",
+    "tags": [
+      "long",
+      "futures",
+      "breakout",
+      "high_frequency"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_futures_long_036",
+    "name": "Breakout Donchian Breakout Futures Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 51,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on futures assets with long exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "long",
+      "intraday",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_futures_long_037",
+    "name": "Momentum Momentum 12 1 Futures Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 57,
+      "holding": 22
+    },
+    "description": "Momentum strategy using momentum_12_1 on futures assets with long exposure.",
+    "tags": [
+      "swing",
+      "momentum",
+      "momentum_12_1",
+      "long",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_futures_long_038",
+    "name": "Volatility Volatility Target Futures Long",
+    "category": "Volatility",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on futures assets with long exposure.",
+    "tags": [
+      "volatility_target",
+      "volatility",
+      "long",
+      "futures",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_futures_long_039",
+    "name": "StatArb Stat Arb Futures Long",
+    "category": "StatArb",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 59,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on futures assets with long exposure.",
+    "tags": [
+      "multi_asset",
+      "statarb",
+      "long",
+      "futures",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_futures_long_040",
+    "name": "ML Ml Logreg Futures Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on futures assets with long exposure.",
+    "tags": [
+      "ml",
+      "long_only",
+      "long",
+      "ml_logreg",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_futures_long_041",
+    "name": "ML Ml Xgb Futures Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on futures assets with long exposure.",
+    "tags": [
+      "market_neutral",
+      "ml",
+      "ml_xgb",
+      "long",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_futures_long_042",
+    "name": "Carry Carry Futures Long",
+    "category": "Carry",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 72,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on futures assets with long exposure.",
+    "tags": [
+      "carry",
+      "long",
+      "futures",
+      "event_driven"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_futures_long_043",
+    "name": "Seasonality Seasonality Futures Long",
+    "category": "Seasonality",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 8,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on futures assets with long exposure.",
+    "tags": [
+      "long",
+      "seasonality",
+      "futures",
+      "pairs"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_futures_long_044",
+    "name": "Options Options Spread Futures Long",
+    "category": "Options",
+    "type": "long",
+    "asset_class": "futures",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on futures assets with long exposure.",
+    "tags": [
+      "options_spread",
+      "options",
+      "long",
+      "calendar",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_fx_long_045",
+    "name": "Trend Sma Cross Fx Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 75,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on fx assets with long exposure.",
+    "tags": [
+      "trend_following",
+      "long",
+      "sma_cross",
+      "fx",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_fx_long_046",
+    "name": "Trend Ema Cross Fx Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 11,
+      "slow": 66,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on fx assets with long exposure.",
+    "tags": [
+      "technical",
+      "ema_cross",
+      "long",
+      "fx",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_fx_long_047",
+    "name": "Momentum Macd Fx Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 24,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on fx assets with long exposure.",
+    "tags": [
+      "momentum",
+      "quantitative",
+      "long",
+      "macd",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_fx_long_048",
+    "name": "MeanReversion Rsi Mean Revert Fx Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 13,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on fx assets with long exposure.",
+    "tags": [
+      "systematic",
+      "rsi_mean_revert",
+      "long",
+      "meanreversion",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_fx_long_049",
+    "name": "MeanReversion Bollinger Revert Fx Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 19,
+      "std": 2.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on fx assets with long exposure.",
+    "tags": [
+      "bollinger_revert",
+      "long",
+      "meanreversion",
+      "fx",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_fx_long_050",
+    "name": "Breakout Breakout Fx Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 10,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on fx assets with long exposure.",
+    "tags": [
+      "machine_learning",
+      "long",
+      "fx",
+      "breakout"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_fx_long_051",
+    "name": "Breakout Donchian Breakout Fx Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 66,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on fx assets with long exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "risk_parity",
+      "long",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_fx_long_052",
+    "name": "Momentum Momentum 12 1 Fx Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 72,
+      "holding": 17
+    },
+    "description": "Momentum strategy using momentum_12_1 on fx assets with long exposure.",
+    "tags": [
+      "momentum",
+      "factor",
+      "momentum_12_1",
+      "long",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_fx_long_053",
+    "name": "Volatility Volatility Target Fx Long",
+    "category": "Volatility",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on fx assets with long exposure.",
+    "tags": [
+      "volatility_target",
+      "momentum",
+      "volatility",
+      "long",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_fx_long_054",
+    "name": "StatArb Stat Arb Fx Long",
+    "category": "StatArb",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 74,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on fx assets with long exposure.",
+    "tags": [
+      "value",
+      "statarb",
+      "long",
+      "fx",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_fx_long_055",
+    "name": "ML Ml Logreg Fx Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on fx assets with long exposure.",
+    "tags": [
+      "ml",
+      "carry",
+      "long",
+      "ml_logreg",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_fx_long_056",
+    "name": "ML Ml Xgb Fx Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on fx assets with long exposure.",
+    "tags": [
+      "ml",
+      "ml_xgb",
+      "volatility",
+      "long",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_fx_long_057",
+    "name": "Carry Carry Fx Long",
+    "category": "Carry",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 87,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on fx assets with long exposure.",
+    "tags": [
+      "long",
+      "carry",
+      "macro",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_fx_long_058",
+    "name": "Seasonality Seasonality Fx Long",
+    "category": "Seasonality",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 11,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on fx assets with long exposure.",
+    "tags": [
+      "long",
+      "seasonality",
+      "fx",
+      "high_frequency"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_fx_long_059",
+    "name": "Options Options Spread Fx Long",
+    "category": "Options",
+    "type": "long",
+    "asset_class": "fx",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on fx assets with long exposure.",
+    "tags": [
+      "options_spread",
+      "options",
+      "long",
+      "intraday",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_crypto_long_060",
+    "name": "Trend Sma Cross Crypto Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 90,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on crypto assets with long exposure.",
+    "tags": [
+      "swing",
+      "long",
+      "crypto",
+      "sma_cross",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_crypto_long_061",
+    "name": "Trend Ema Cross Crypto Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 6,
+      "slow": 81,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on crypto assets with long exposure.",
+    "tags": [
+      "ema_cross",
+      "position",
+      "long",
+      "crypto",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_crypto_long_062",
+    "name": "Momentum Macd Crypto Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 19,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on crypto assets with long exposure.",
+    "tags": [
+      "momentum",
+      "multi_asset",
+      "long",
+      "crypto",
+      "macd"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_crypto_long_063",
+    "name": "MeanReversion Rsi Mean Revert Crypto Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 7,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on crypto assets with long exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "long",
+      "crypto",
+      "meanreversion",
+      "long_only"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_crypto_long_064",
+    "name": "MeanReversion Bollinger Revert Crypto Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 34,
+      "std": 1.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on crypto assets with long exposure.",
+    "tags": [
+      "market_neutral",
+      "bollinger_revert",
+      "long",
+      "crypto",
+      "meanreversion"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_crypto_long_065",
+    "name": "Breakout Breakout Crypto Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 25,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on crypto assets with long exposure.",
+    "tags": [
+      "breakout",
+      "long",
+      "event_driven",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_crypto_long_066",
+    "name": "Breakout Donchian Breakout Crypto Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 21,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on crypto assets with long exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "long",
+      "crypto",
+      "pairs"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_crypto_long_067",
+    "name": "Momentum Momentum 12 1 Crypto Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 87,
+      "holding": 12
+    },
+    "description": "Momentum strategy using momentum_12_1 on crypto assets with long exposure.",
+    "tags": [
+      "momentum",
+      "momentum_12_1",
+      "long",
+      "crypto",
+      "calendar"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_crypto_long_068",
+    "name": "Volatility Volatility Target Crypto Long",
+    "category": "Volatility",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on crypto assets with long exposure.",
+    "tags": [
+      "volatility_target",
+      "trend_following",
+      "volatility",
+      "long",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_crypto_long_069",
+    "name": "StatArb Stat Arb Crypto Long",
+    "category": "StatArb",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 29,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on crypto assets with long exposure.",
+    "tags": [
+      "technical",
+      "statarb",
+      "long",
+      "crypto",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_crypto_long_070",
+    "name": "ML Ml Logreg Crypto Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on crypto assets with long exposure.",
+    "tags": [
+      "ml",
+      "quantitative",
+      "ml_logreg",
+      "long",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_crypto_long_071",
+    "name": "ML Ml Xgb Crypto Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on crypto assets with long exposure.",
+    "tags": [
+      "ml",
+      "systematic",
+      "ml_xgb",
+      "long",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_crypto_long_072",
+    "name": "Carry Carry Crypto Long",
+    "category": "Carry",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 42,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on crypto assets with long exposure.",
+    "tags": [
+      "carry",
+      "long",
+      "crypto",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_crypto_long_073",
+    "name": "Seasonality Seasonality Crypto Long",
+    "category": "Seasonality",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 2,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on crypto assets with long exposure.",
+    "tags": [
+      "machine_learning",
+      "seasonality",
+      "long",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_crypto_long_074",
+    "name": "Options Options Spread Crypto Long",
+    "category": "Options",
+    "type": "long",
+    "asset_class": "crypto",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on crypto assets with long exposure.",
+    "tags": [
+      "options_spread",
+      "risk_parity",
+      "options",
+      "long",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_commodity_long_075",
+    "name": "Trend Sma Cross Commodity Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 105,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on commodity assets with long exposure.",
+    "tags": [
+      "commodity",
+      "factor",
+      "long",
+      "sma_cross",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_commodity_long_076",
+    "name": "Trend Ema Cross Commodity Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 21,
+      "slow": 96,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on commodity assets with long exposure.",
+    "tags": [
+      "momentum",
+      "ema_cross",
+      "commodity",
+      "long",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_commodity_long_077",
+    "name": "Momentum Macd Commodity Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 34,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on commodity assets with long exposure.",
+    "tags": [
+      "value",
+      "momentum",
+      "commodity",
+      "long",
+      "macd"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_commodity_long_078",
+    "name": "MeanReversion Rsi Mean Revert Commodity Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 22,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on commodity assets with long exposure.",
+    "tags": [
+      "carry",
+      "commodity",
+      "rsi_mean_revert",
+      "long",
+      "meanreversion"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_commodity_long_079",
+    "name": "MeanReversion Bollinger Revert Commodity Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 49,
+      "std": 3.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on commodity assets with long exposure.",
+    "tags": [
+      "bollinger_revert",
+      "commodity",
+      "volatility",
+      "long",
+      "meanreversion"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_commodity_long_080",
+    "name": "Breakout Breakout Commodity Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 40,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on commodity assets with long exposure.",
+    "tags": [
+      "long",
+      "macro",
+      "commodity",
+      "breakout"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_commodity_long_081",
+    "name": "Breakout Donchian Breakout Commodity Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 36,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on commodity assets with long exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "commodity",
+      "high_frequency",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_commodity_long_082",
+    "name": "Momentum Momentum 12 1 Commodity Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 102,
+      "holding": 7
+    },
+    "description": "Momentum strategy using momentum_12_1 on commodity assets with long exposure.",
+    "tags": [
+      "momentum",
+      "commodity",
+      "momentum_12_1",
+      "long",
+      "intraday"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_commodity_long_083",
+    "name": "Volatility Volatility Target Commodity Long",
+    "category": "Volatility",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on commodity assets with long exposure.",
+    "tags": [
+      "volatility_target",
+      "swing",
+      "commodity",
+      "volatility",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_commodity_long_084",
+    "name": "StatArb Stat Arb Commodity Long",
+    "category": "StatArb",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 44,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on commodity assets with long exposure.",
+    "tags": [
+      "position",
+      "commodity",
+      "statarb",
+      "long",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_commodity_long_085",
+    "name": "ML Ml Logreg Commodity Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on commodity assets with long exposure.",
+    "tags": [
+      "ml",
+      "commodity",
+      "multi_asset",
+      "long",
+      "ml_logreg"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_commodity_long_086",
+    "name": "ML Ml Xgb Commodity Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on commodity assets with long exposure.",
+    "tags": [
+      "ml",
+      "commodity",
+      "ml_xgb",
+      "long",
+      "long_only"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_commodity_long_087",
+    "name": "Carry Carry Commodity Long",
+    "category": "Carry",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 57,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on commodity assets with long exposure.",
+    "tags": [
+      "market_neutral",
+      "carry",
+      "commodity",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_commodity_long_088",
+    "name": "Seasonality Seasonality Commodity Long",
+    "category": "Seasonality",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 5,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on commodity assets with long exposure.",
+    "tags": [
+      "long",
+      "seasonality",
+      "commodity",
+      "event_driven"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_commodity_long_089",
+    "name": "Options Options Spread Commodity Long",
+    "category": "Options",
+    "type": "long",
+    "asset_class": "commodity",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on commodity assets with long exposure.",
+    "tags": [
+      "options_spread",
+      "commodity",
+      "options",
+      "long",
+      "pairs"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_multi_asset_long_090",
+    "name": "Trend Sma Cross Multi_Asset Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 120,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on multi_asset assets with long exposure.",
+    "tags": [
+      "multi_asset",
+      "long",
+      "calendar",
+      "sma_cross",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_multi_asset_long_091",
+    "name": "Trend Ema Cross Multi_Asset Long",
+    "category": "Trend",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 16,
+      "slow": 31,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on multi_asset assets with long exposure.",
+    "tags": [
+      "ema_cross",
+      "trend_following",
+      "multi_asset",
+      "long",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_multi_asset_long_092",
+    "name": "Momentum Macd Multi_Asset Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 29,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on multi_asset assets with long exposure.",
+    "tags": [
+      "momentum",
+      "technical",
+      "multi_asset",
+      "long",
+      "macd"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_multi_asset_long_093",
+    "name": "MeanReversion Rsi Mean Revert Multi_Asset Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 16,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on multi_asset assets with long exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "quantitative",
+      "multi_asset",
+      "long",
+      "meanreversion"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_multi_asset_long_094",
+    "name": "MeanReversion Bollinger Revert Multi_Asset Long",
+    "category": "MeanReversion",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 24,
+      "std": 2.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on multi_asset assets with long exposure.",
+    "tags": [
+      "systematic",
+      "bollinger_revert",
+      "multi_asset",
+      "long",
+      "meanreversion"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_multi_asset_long_095",
+    "name": "Breakout Breakout Multi_Asset Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 55,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on multi_asset assets with long exposure.",
+    "tags": [
+      "multi_asset",
+      "long",
+      "breakout",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_multi_asset_long_096",
+    "name": "Breakout Donchian Breakout Multi_Asset Long",
+    "category": "Breakout",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 51,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on multi_asset assets with long exposure.",
+    "tags": [
+      "machine_learning",
+      "breakout",
+      "donchian_breakout",
+      "multi_asset",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_multi_asset_long_097",
+    "name": "Momentum Momentum 12 1 Multi_Asset Long",
+    "category": "Momentum",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 117,
+      "holding": 22
+    },
+    "description": "Momentum strategy using momentum_12_1 on multi_asset assets with long exposure.",
+    "tags": [
+      "momentum",
+      "risk_parity",
+      "momentum_12_1",
+      "multi_asset",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_multi_asset_long_098",
+    "name": "Volatility Volatility Target Multi_Asset Long",
+    "category": "Volatility",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on multi_asset assets with long exposure.",
+    "tags": [
+      "volatility_target",
+      "factor",
+      "multi_asset",
+      "volatility",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_multi_asset_long_099",
+    "name": "StatArb Stat Arb Multi_Asset Long",
+    "category": "StatArb",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 59,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on multi_asset assets with long exposure.",
+    "tags": [
+      "momentum",
+      "multi_asset",
+      "statarb",
+      "long",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_multi_asset_long_100",
+    "name": "ML Ml Logreg Multi_Asset Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on multi_asset assets with long exposure.",
+    "tags": [
+      "value",
+      "ml",
+      "multi_asset",
+      "long",
+      "ml_logreg"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_multi_asset_long_101",
+    "name": "ML Ml Xgb Multi_Asset Long",
+    "category": "ML",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on multi_asset assets with long exposure.",
+    "tags": [
+      "ml",
+      "carry",
+      "ml_xgb",
+      "multi_asset",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_multi_asset_long_102",
+    "name": "Carry Carry Multi_Asset Long",
+    "category": "Carry",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 72,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on multi_asset assets with long exposure.",
+    "tags": [
+      "carry",
+      "volatility",
+      "long",
+      "multi_asset"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_multi_asset_long_103",
+    "name": "Seasonality Seasonality Multi_Asset Long",
+    "category": "Seasonality",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 8,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on multi_asset assets with long exposure.",
+    "tags": [
+      "seasonality",
+      "multi_asset",
+      "macro",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_multi_asset_long_104",
+    "name": "Options Options Spread Multi_Asset Long",
+    "category": "Options",
+    "type": "long",
+    "asset_class": "multi_asset",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on multi_asset assets with long exposure.",
+    "tags": [
+      "options_spread",
+      "options",
+      "high_frequency",
+      "multi_asset",
+      "long"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_equity_short_105",
+    "name": "Trend Sma Cross Equity Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 135,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on equity assets with short exposure.",
+    "tags": [
+      "equity",
+      "short",
+      "sma_cross",
+      "intraday",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_equity_short_106",
+    "name": "Trend Ema Cross Equity Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 11,
+      "slow": 46,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on equity assets with short exposure.",
+    "tags": [
+      "swing",
+      "ema_cross",
+      "equity",
+      "short",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_equity_short_107",
+    "name": "Momentum Macd Equity Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 24,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on equity assets with short exposure.",
+    "tags": [
+      "momentum",
+      "short",
+      "equity",
+      "macd",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_equity_short_108",
+    "name": "MeanReversion Rsi Mean Revert Equity Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 10,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on equity assets with short exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "multi_asset",
+      "equity",
+      "meanreversion",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_equity_short_109",
+    "name": "MeanReversion Bollinger Revert Equity Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 39,
+      "std": 2.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on equity assets with short exposure.",
+    "tags": [
+      "bollinger_revert",
+      "equity",
+      "meanreversion",
+      "short",
+      "long_only"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_equity_short_110",
+    "name": "Breakout Breakout Equity Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 20,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on equity assets with short exposure.",
+    "tags": [
+      "market_neutral",
+      "short",
+      "equity",
+      "breakout"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_equity_short_111",
+    "name": "Breakout Donchian Breakout Equity Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 66,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on equity assets with short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "equity",
+      "event_driven",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_equity_short_112",
+    "name": "Momentum Momentum 12 1 Equity Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 32,
+      "holding": 17
+    },
+    "description": "Momentum strategy using momentum_12_1 on equity assets with short exposure.",
+    "tags": [
+      "momentum",
+      "equity",
+      "momentum_12_1",
+      "short",
+      "pairs"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_equity_short_113",
+    "name": "Volatility Volatility Target Equity Short",
+    "category": "Volatility",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on equity assets with short exposure.",
+    "tags": [
+      "volatility_target",
+      "short",
+      "equity",
+      "volatility",
+      "calendar"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_equity_short_114",
+    "name": "StatArb Stat Arb Equity Short",
+    "category": "StatArb",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 74,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on equity assets with short exposure.",
+    "tags": [
+      "trend_following",
+      "equity",
+      "statarb",
+      "short",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_equity_short_115",
+    "name": "ML Ml Logreg Equity Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on equity assets with short exposure.",
+    "tags": [
+      "ml",
+      "technical",
+      "equity",
+      "ml_logreg",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_equity_short_116",
+    "name": "ML Ml Xgb Equity Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on equity assets with short exposure.",
+    "tags": [
+      "ml",
+      "ml_xgb",
+      "quantitative",
+      "equity",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_equity_short_117",
+    "name": "Carry Carry Equity Short",
+    "category": "Carry",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 87,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on equity assets with short exposure.",
+    "tags": [
+      "systematic",
+      "short",
+      "carry",
+      "equity"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_equity_short_118",
+    "name": "Seasonality Seasonality Equity Short",
+    "category": "Seasonality",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 11,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on equity assets with short exposure.",
+    "tags": [
+      "short",
+      "equity",
+      "seasonality",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_equity_short_119",
+    "name": "Options Options Spread Equity Short",
+    "category": "Options",
+    "type": "short",
+    "asset_class": "equity",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on equity assets with short exposure.",
+    "tags": [
+      "options_spread",
+      "machine_learning",
+      "options",
+      "equity",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_etf_short_120",
+    "name": "Trend Sma Cross Etf Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 30,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on etf assets with short exposure.",
+    "tags": [
+      "risk_parity",
+      "short",
+      "sma_cross",
+      "etf",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_etf_short_121",
+    "name": "Trend Ema Cross Etf Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 6,
+      "slow": 61,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on etf assets with short exposure.",
+    "tags": [
+      "ema_cross",
+      "factor",
+      "short",
+      "etf",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_etf_short_122",
+    "name": "Momentum Macd Etf Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 19,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on etf assets with short exposure.",
+    "tags": [
+      "short",
+      "macd",
+      "etf",
+      "momentum"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_etf_short_123",
+    "name": "MeanReversion Rsi Mean Revert Etf Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 25,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on etf assets with short exposure.",
+    "tags": [
+      "value",
+      "rsi_mean_revert",
+      "meanreversion",
+      "short",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_etf_short_124",
+    "name": "MeanReversion Bollinger Revert Etf Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 14,
+      "std": 1.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on etf assets with short exposure.",
+    "tags": [
+      "carry",
+      "bollinger_revert",
+      "meanreversion",
+      "short",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_etf_short_125",
+    "name": "Breakout Breakout Etf Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 35,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on etf assets with short exposure.",
+    "tags": [
+      "short",
+      "volatility",
+      "etf",
+      "breakout"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_etf_short_126",
+    "name": "Breakout Donchian Breakout Etf Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 21,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on etf assets with short exposure.",
+    "tags": [
+      "macro",
+      "breakout",
+      "donchian_breakout",
+      "short",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_etf_short_127",
+    "name": "Momentum Momentum 12 1 Etf Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 47,
+      "holding": 12
+    },
+    "description": "Momentum strategy using momentum_12_1 on etf assets with short exposure.",
+    "tags": [
+      "momentum",
+      "high_frequency",
+      "momentum_12_1",
+      "short",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_etf_short_128",
+    "name": "Volatility Volatility Target Etf Short",
+    "category": "Volatility",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on etf assets with short exposure.",
+    "tags": [
+      "volatility_target",
+      "volatility",
+      "intraday",
+      "short",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_etf_short_129",
+    "name": "StatArb Stat Arb Etf Short",
+    "category": "StatArb",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 29,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on etf assets with short exposure.",
+    "tags": [
+      "swing",
+      "statarb",
+      "short",
+      "etf",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_etf_short_130",
+    "name": "ML Ml Logreg Etf Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on etf assets with short exposure.",
+    "tags": [
+      "ml",
+      "ml_logreg",
+      "short",
+      "etf",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_etf_short_131",
+    "name": "ML Ml Xgb Etf Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on etf assets with short exposure.",
+    "tags": [
+      "ml",
+      "ml_xgb",
+      "multi_asset",
+      "short",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_etf_short_132",
+    "name": "Carry Carry Etf Short",
+    "category": "Carry",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 42,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on etf assets with short exposure.",
+    "tags": [
+      "short",
+      "carry",
+      "etf",
+      "long_only"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_etf_short_133",
+    "name": "Seasonality Seasonality Etf Short",
+    "category": "Seasonality",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 2,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on etf assets with short exposure.",
+    "tags": [
+      "market_neutral",
+      "short",
+      "seasonality",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_etf_short_134",
+    "name": "Options Options Spread Etf Short",
+    "category": "Options",
+    "type": "short",
+    "asset_class": "etf",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on etf assets with short exposure.",
+    "tags": [
+      "options_spread",
+      "options",
+      "event_driven",
+      "short",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_futures_short_135",
+    "name": "Trend Sma Cross Futures Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 45,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on futures assets with short exposure.",
+    "tags": [
+      "pairs",
+      "short",
+      "sma_cross",
+      "futures",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_futures_short_136",
+    "name": "Trend Ema Cross Futures Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 21,
+      "slow": 76,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on futures assets with short exposure.",
+    "tags": [
+      "ema_cross",
+      "short",
+      "calendar",
+      "futures",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_futures_short_137",
+    "name": "Momentum Macd Futures Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 34,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on futures assets with short exposure.",
+    "tags": [
+      "macd",
+      "momentum",
+      "trend_following",
+      "short",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_futures_short_138",
+    "name": "MeanReversion Rsi Mean Revert Futures Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 19,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on futures assets with short exposure.",
+    "tags": [
+      "technical",
+      "rsi_mean_revert",
+      "meanreversion",
+      "short",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_futures_short_139",
+    "name": "MeanReversion Bollinger Revert Futures Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 29,
+      "std": 3.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on futures assets with short exposure.",
+    "tags": [
+      "bollinger_revert",
+      "quantitative",
+      "meanreversion",
+      "short",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_futures_short_140",
+    "name": "Breakout Breakout Futures Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 50,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on futures assets with short exposure.",
+    "tags": [
+      "systematic",
+      "short",
+      "futures",
+      "breakout"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_futures_short_141",
+    "name": "Breakout Donchian Breakout Futures Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 36,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on futures assets with short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "short",
+      "futures",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_futures_short_142",
+    "name": "Momentum Momentum 12 1 Futures Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 62,
+      "holding": 7
+    },
+    "description": "Momentum strategy using momentum_12_1 on futures assets with short exposure.",
+    "tags": [
+      "machine_learning",
+      "momentum",
+      "momentum_12_1",
+      "short",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_futures_short_143",
+    "name": "Volatility Volatility Target Futures Short",
+    "category": "Volatility",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on futures assets with short exposure.",
+    "tags": [
+      "volatility_target",
+      "risk_parity",
+      "volatility",
+      "short",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_futures_short_144",
+    "name": "StatArb Stat Arb Futures Short",
+    "category": "StatArb",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 44,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on futures assets with short exposure.",
+    "tags": [
+      "factor",
+      "statarb",
+      "short",
+      "futures",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_futures_short_145",
+    "name": "ML Ml Logreg Futures Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on futures assets with short exposure.",
+    "tags": [
+      "ml",
+      "momentum",
+      "ml_logreg",
+      "short",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_futures_short_146",
+    "name": "ML Ml Xgb Futures Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on futures assets with short exposure.",
+    "tags": [
+      "value",
+      "ml",
+      "ml_xgb",
+      "short",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_futures_short_147",
+    "name": "Carry Carry Futures Short",
+    "category": "Carry",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 57,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on futures assets with short exposure.",
+    "tags": [
+      "short",
+      "carry",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_futures_short_148",
+    "name": "Seasonality Seasonality Futures Short",
+    "category": "Seasonality",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 5,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on futures assets with short exposure.",
+    "tags": [
+      "seasonality",
+      "volatility",
+      "futures",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_futures_short_149",
+    "name": "Options Options Spread Futures Short",
+    "category": "Options",
+    "type": "short",
+    "asset_class": "futures",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on futures assets with short exposure.",
+    "tags": [
+      "options_spread",
+      "macro",
+      "options",
+      "short",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_fx_short_150",
+    "name": "Trend Sma Cross Fx Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 60,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on fx assets with short exposure.",
+    "tags": [
+      "high_frequency",
+      "short",
+      "sma_cross",
+      "fx",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_fx_short_151",
+    "name": "Trend Ema Cross Fx Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 16,
+      "slow": 91,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on fx assets with short exposure.",
+    "tags": [
+      "ema_cross",
+      "intraday",
+      "short",
+      "fx",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_fx_short_152",
+    "name": "Momentum Macd Fx Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 29,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on fx assets with short exposure.",
+    "tags": [
+      "macd",
+      "swing",
+      "momentum",
+      "short",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_fx_short_153",
+    "name": "MeanReversion Rsi Mean Revert Fx Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 13,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on fx assets with short exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "meanreversion",
+      "short",
+      "fx",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_fx_short_154",
+    "name": "MeanReversion Bollinger Revert Fx Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 44,
+      "std": 2.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on fx assets with short exposure.",
+    "tags": [
+      "bollinger_revert",
+      "multi_asset",
+      "meanreversion",
+      "short",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_fx_short_155",
+    "name": "Breakout Breakout Fx Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 15,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on fx assets with short exposure.",
+    "tags": [
+      "breakout",
+      "fx",
+      "long_only",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_fx_short_156",
+    "name": "Breakout Donchian Breakout Fx Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 51,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on fx assets with short exposure.",
+    "tags": [
+      "market_neutral",
+      "breakout",
+      "donchian_breakout",
+      "short",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_fx_short_157",
+    "name": "Momentum Momentum 12 1 Fx Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 77,
+      "holding": 22
+    },
+    "description": "Momentum strategy using momentum_12_1 on fx assets with short exposure.",
+    "tags": [
+      "momentum",
+      "momentum_12_1",
+      "event_driven",
+      "short",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_fx_short_158",
+    "name": "Volatility Volatility Target Fx Short",
+    "category": "Volatility",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on fx assets with short exposure.",
+    "tags": [
+      "volatility_target",
+      "volatility",
+      "short",
+      "fx",
+      "pairs"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_fx_short_159",
+    "name": "StatArb Stat Arb Fx Short",
+    "category": "StatArb",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 59,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on fx assets with short exposure.",
+    "tags": [
+      "short",
+      "statarb",
+      "calendar",
+      "fx",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_fx_short_160",
+    "name": "ML Ml Logreg Fx Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on fx assets with short exposure.",
+    "tags": [
+      "ml",
+      "trend_following",
+      "ml_logreg",
+      "short",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_fx_short_161",
+    "name": "ML Ml Xgb Fx Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on fx assets with short exposure.",
+    "tags": [
+      "ml",
+      "technical",
+      "ml_xgb",
+      "short",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_fx_short_162",
+    "name": "Carry Carry Fx Short",
+    "category": "Carry",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 72,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on fx assets with short exposure.",
+    "tags": [
+      "quantitative",
+      "carry",
+      "fx",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_fx_short_163",
+    "name": "Seasonality Seasonality Fx Short",
+    "category": "Seasonality",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 8,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on fx assets with short exposure.",
+    "tags": [
+      "systematic",
+      "short",
+      "seasonality",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_fx_short_164",
+    "name": "Options Options Spread Fx Short",
+    "category": "Options",
+    "type": "short",
+    "asset_class": "fx",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on fx assets with short exposure.",
+    "tags": [
+      "options_spread",
+      "options",
+      "short",
+      "fx",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_crypto_short_165",
+    "name": "Trend Sma Cross Crypto Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 75,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on crypto assets with short exposure.",
+    "tags": [
+      "machine_learning",
+      "crypto",
+      "short",
+      "sma_cross",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_crypto_short_166",
+    "name": "Trend Ema Cross Crypto Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 11,
+      "slow": 26,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on crypto assets with short exposure.",
+    "tags": [
+      "ema_cross",
+      "risk_parity",
+      "crypto",
+      "short",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_crypto_short_167",
+    "name": "Momentum Macd Crypto Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 24,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on crypto assets with short exposure.",
+    "tags": [
+      "macd",
+      "momentum",
+      "factor",
+      "crypto",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_crypto_short_168",
+    "name": "MeanReversion Rsi Mean Revert Crypto Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 7,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on crypto assets with short exposure.",
+    "tags": [
+      "momentum",
+      "rsi_mean_revert",
+      "meanreversion",
+      "crypto",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_crypto_short_169",
+    "name": "MeanReversion Bollinger Revert Crypto Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 19,
+      "std": 2.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on crypto assets with short exposure.",
+    "tags": [
+      "value",
+      "bollinger_revert",
+      "crypto",
+      "meanreversion",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_crypto_short_170",
+    "name": "Breakout Breakout Crypto Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 30,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on crypto assets with short exposure.",
+    "tags": [
+      "short",
+      "carry",
+      "breakout",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_crypto_short_171",
+    "name": "Breakout Donchian Breakout Crypto Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 66,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on crypto assets with short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "volatility",
+      "crypto",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_crypto_short_172",
+    "name": "Momentum Momentum 12 1 Crypto Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 92,
+      "holding": 17
+    },
+    "description": "Momentum strategy using momentum_12_1 on crypto assets with short exposure.",
+    "tags": [
+      "macro",
+      "momentum",
+      "momentum_12_1",
+      "crypto",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_crypto_short_173",
+    "name": "Volatility Volatility Target Crypto Short",
+    "category": "Volatility",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on crypto assets with short exposure.",
+    "tags": [
+      "volatility_target",
+      "high_frequency",
+      "volatility",
+      "crypto",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_crypto_short_174",
+    "name": "StatArb Stat Arb Crypto Short",
+    "category": "StatArb",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 74,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on crypto assets with short exposure.",
+    "tags": [
+      "statarb",
+      "crypto",
+      "short",
+      "intraday",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_crypto_short_175",
+    "name": "ML Ml Logreg Crypto Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on crypto assets with short exposure.",
+    "tags": [
+      "ml",
+      "swing",
+      "ml_logreg",
+      "crypto",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_crypto_short_176",
+    "name": "ML Ml Xgb Crypto Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on crypto assets with short exposure.",
+    "tags": [
+      "ml",
+      "ml_xgb",
+      "crypto",
+      "short",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_crypto_short_177",
+    "name": "Carry Carry Crypto Short",
+    "category": "Carry",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 87,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on crypto assets with short exposure.",
+    "tags": [
+      "carry",
+      "short",
+      "multi_asset",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_crypto_short_178",
+    "name": "Seasonality Seasonality Crypto Short",
+    "category": "Seasonality",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 11,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on crypto assets with short exposure.",
+    "tags": [
+      "short",
+      "seasonality",
+      "long_only",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_crypto_short_179",
+    "name": "Options Options Spread Crypto Short",
+    "category": "Options",
+    "type": "short",
+    "asset_class": "crypto",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on crypto assets with short exposure.",
+    "tags": [
+      "market_neutral",
+      "options_spread",
+      "options",
+      "crypto",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_commodity_short_180",
+    "name": "Trend Sma Cross Commodity Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 90,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on commodity assets with short exposure.",
+    "tags": [
+      "commodity",
+      "event_driven",
+      "short",
+      "sma_cross",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_commodity_short_181",
+    "name": "Trend Ema Cross Commodity Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 6,
+      "slow": 41,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on commodity assets with short exposure.",
+    "tags": [
+      "ema_cross",
+      "commodity",
+      "short",
+      "pairs",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_commodity_short_182",
+    "name": "Momentum Macd Commodity Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 19,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on commodity assets with short exposure.",
+    "tags": [
+      "macd",
+      "momentum",
+      "commodity",
+      "short",
+      "calendar"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_commodity_short_183",
+    "name": "MeanReversion Rsi Mean Revert Commodity Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 22,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on commodity assets with short exposure.",
+    "tags": [
+      "trend_following",
+      "rsi_mean_revert",
+      "commodity",
+      "meanreversion",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_commodity_short_184",
+    "name": "MeanReversion Bollinger Revert Commodity Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 34,
+      "std": 1.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on commodity assets with short exposure.",
+    "tags": [
+      "technical",
+      "commodity",
+      "bollinger_revert",
+      "meanreversion",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_commodity_short_185",
+    "name": "Breakout Breakout Commodity Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 45,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on commodity assets with short exposure.",
+    "tags": [
+      "quantitative",
+      "commodity",
+      "breakout",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_commodity_short_186",
+    "name": "Breakout Donchian Breakout Commodity Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 21,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on commodity assets with short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "systematic",
+      "commodity",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_commodity_short_187",
+    "name": "Momentum Momentum 12 1 Commodity Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 107,
+      "holding": 12
+    },
+    "description": "Momentum strategy using momentum_12_1 on commodity assets with short exposure.",
+    "tags": [
+      "momentum",
+      "commodity",
+      "momentum_12_1",
+      "short",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_commodity_short_188",
+    "name": "Volatility Volatility Target Commodity Short",
+    "category": "Volatility",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on commodity assets with short exposure.",
+    "tags": [
+      "machine_learning",
+      "volatility_target",
+      "commodity",
+      "volatility",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_commodity_short_189",
+    "name": "StatArb Stat Arb Commodity Short",
+    "category": "StatArb",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 29,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on commodity assets with short exposure.",
+    "tags": [
+      "commodity",
+      "risk_parity",
+      "statarb",
+      "short",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_commodity_short_190",
+    "name": "ML Ml Logreg Commodity Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on commodity assets with short exposure.",
+    "tags": [
+      "ml",
+      "commodity",
+      "factor",
+      "ml_logreg",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_commodity_short_191",
+    "name": "ML Ml Xgb Commodity Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on commodity assets with short exposure.",
+    "tags": [
+      "ml",
+      "momentum",
+      "commodity",
+      "ml_xgb",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_commodity_short_192",
+    "name": "Carry Carry Commodity Short",
+    "category": "Carry",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 42,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on commodity assets with short exposure.",
+    "tags": [
+      "value",
+      "short",
+      "carry",
+      "commodity"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_commodity_short_193",
+    "name": "Seasonality Seasonality Commodity Short",
+    "category": "Seasonality",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 2,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on commodity assets with short exposure.",
+    "tags": [
+      "short",
+      "carry",
+      "seasonality",
+      "commodity"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_commodity_short_194",
+    "name": "Options Options Spread Commodity Short",
+    "category": "Options",
+    "type": "short",
+    "asset_class": "commodity",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on commodity assets with short exposure.",
+    "tags": [
+      "options_spread",
+      "commodity",
+      "options",
+      "volatility",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_multi_asset_short_195",
+    "name": "Trend Sma Cross Multi_Asset Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 105,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on multi_asset assets with short exposure.",
+    "tags": [
+      "macro",
+      "multi_asset",
+      "short",
+      "sma_cross",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_multi_asset_short_196",
+    "name": "Trend Ema Cross Multi_Asset Short",
+    "category": "Trend",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 21,
+      "slow": 56,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on multi_asset assets with short exposure.",
+    "tags": [
+      "ema_cross",
+      "high_frequency",
+      "multi_asset",
+      "short",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_multi_asset_short_197",
+    "name": "Momentum Macd Multi_Asset Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 34,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on multi_asset assets with short exposure.",
+    "tags": [
+      "momentum",
+      "short",
+      "multi_asset",
+      "macd",
+      "intraday"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_multi_asset_short_198",
+    "name": "MeanReversion Rsi Mean Revert Multi_Asset Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 16,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on multi_asset assets with short exposure.",
+    "tags": [
+      "swing",
+      "rsi_mean_revert",
+      "multi_asset",
+      "meanreversion",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_multi_asset_short_199",
+    "name": "MeanReversion Bollinger Revert Multi_Asset Short",
+    "category": "MeanReversion",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 49,
+      "std": 3.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on multi_asset assets with short exposure.",
+    "tags": [
+      "bollinger_revert",
+      "multi_asset",
+      "meanreversion",
+      "short",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_multi_asset_short_200",
+    "name": "Breakout Breakout Multi_Asset Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 10,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on multi_asset assets with short exposure.",
+    "tags": [
+      "short",
+      "multi_asset",
+      "breakout"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_multi_asset_short_201",
+    "name": "Breakout Donchian Breakout Multi_Asset Short",
+    "category": "Breakout",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 36,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on multi_asset assets with short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "multi_asset",
+      "short",
+      "long_only"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_multi_asset_short_202",
+    "name": "Momentum Momentum 12 1 Multi_Asset Short",
+    "category": "Momentum",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 22,
+      "holding": 7
+    },
+    "description": "Momentum strategy using momentum_12_1 on multi_asset assets with short exposure.",
+    "tags": [
+      "market_neutral",
+      "momentum",
+      "multi_asset",
+      "momentum_12_1",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_multi_asset_short_203",
+    "name": "Volatility Volatility Target Multi_Asset Short",
+    "category": "Volatility",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on multi_asset assets with short exposure.",
+    "tags": [
+      "volatility_target",
+      "multi_asset",
+      "volatility",
+      "event_driven",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_multi_asset_short_204",
+    "name": "StatArb Stat Arb Multi_Asset Short",
+    "category": "StatArb",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 44,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on multi_asset assets with short exposure.",
+    "tags": [
+      "multi_asset",
+      "statarb",
+      "short",
+      "pairs",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_multi_asset_short_205",
+    "name": "ML Ml Logreg Multi_Asset Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on multi_asset assets with short exposure.",
+    "tags": [
+      "ml",
+      "short",
+      "multi_asset",
+      "ml_logreg",
+      "calendar"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_multi_asset_short_206",
+    "name": "ML Ml Xgb Multi_Asset Short",
+    "category": "ML",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on multi_asset assets with short exposure.",
+    "tags": [
+      "ml",
+      "trend_following",
+      "ml_xgb",
+      "multi_asset",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_multi_asset_short_207",
+    "name": "Carry Carry Multi_Asset Short",
+    "category": "Carry",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 57,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on multi_asset assets with short exposure.",
+    "tags": [
+      "technical",
+      "short",
+      "carry",
+      "multi_asset"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_multi_asset_short_208",
+    "name": "Seasonality Seasonality Multi_Asset Short",
+    "category": "Seasonality",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 5,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on multi_asset assets with short exposure.",
+    "tags": [
+      "quantitative",
+      "multi_asset",
+      "seasonality",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_multi_asset_short_209",
+    "name": "Options Options Spread Multi_Asset Short",
+    "category": "Options",
+    "type": "short",
+    "asset_class": "multi_asset",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on multi_asset assets with short exposure.",
+    "tags": [
+      "options_spread",
+      "systematic",
+      "options",
+      "multi_asset",
+      "short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_equity_long_short_210",
+    "name": "Trend Sma Cross Equity Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 120,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on equity assets with long_short exposure.",
+    "tags": [
+      "statistical",
+      "long_short",
+      "equity",
+      "sma_cross",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_equity_long_short_211",
+    "name": "Trend Ema Cross Equity Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 16,
+      "slow": 71,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on equity assets with long_short exposure.",
+    "tags": [
+      "machine_learning",
+      "ema_cross",
+      "long_short",
+      "equity",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_equity_long_short_212",
+    "name": "Momentum Macd Equity Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 29,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on equity assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "risk_parity",
+      "long_short",
+      "equity",
+      "macd"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_equity_long_short_213",
+    "name": "MeanReversion Rsi Mean Revert Equity Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 10,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on equity assets with long_short exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "factor",
+      "long_short",
+      "equity",
+      "meanreversion"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_equity_long_short_214",
+    "name": "MeanReversion Bollinger Revert Equity Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 24,
+      "std": 2.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on equity assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "bollinger_revert",
+      "long_short",
+      "equity",
+      "meanreversion"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_equity_long_short_215",
+    "name": "Breakout Breakout Equity Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 25,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on equity assets with long_short exposure.",
+    "tags": [
+      "value",
+      "equity",
+      "long_short",
+      "breakout"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_equity_long_short_216",
+    "name": "Breakout Donchian Breakout Equity Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 51,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on equity assets with long_short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "carry",
+      "long_short",
+      "equity"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_equity_long_short_217",
+    "name": "Momentum Momentum 12 1 Equity Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 37,
+      "holding": 22
+    },
+    "description": "Momentum strategy using momentum_12_1 on equity assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "long_short",
+      "equity",
+      "volatility",
+      "momentum_12_1"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_equity_long_short_218",
+    "name": "Volatility Volatility Target Equity Long Short",
+    "category": "Volatility",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on equity assets with long_short exposure.",
+    "tags": [
+      "macro",
+      "volatility_target",
+      "long_short",
+      "equity",
+      "volatility"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_equity_long_short_219",
+    "name": "StatArb Stat Arb Equity Long Short",
+    "category": "StatArb",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 59,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on equity assets with long_short exposure.",
+    "tags": [
+      "high_frequency",
+      "long_short",
+      "equity",
+      "statarb",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_equity_long_short_220",
+    "name": "ML Ml Logreg Equity Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on equity assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "long_short",
+      "equity",
+      "ml_logreg",
+      "intraday"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_equity_long_short_221",
+    "name": "ML Ml Xgb Equity Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on equity assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "swing",
+      "ml_xgb",
+      "long_short",
+      "equity"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_equity_long_short_222",
+    "name": "Carry Carry Equity Long Short",
+    "category": "Carry",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 72,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on equity assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "carry",
+      "equity",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_equity_long_short_223",
+    "name": "Seasonality Seasonality Equity Long Short",
+    "category": "Seasonality",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 8,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on equity assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "multi_asset",
+      "seasonality",
+      "equity"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_equity_long_short_224",
+    "name": "Options Options Spread Equity Long Short",
+    "category": "Options",
+    "type": "long_short",
+    "asset_class": "equity",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on equity assets with long_short exposure.",
+    "tags": [
+      "options_spread",
+      "options",
+      "long_short",
+      "equity",
+      "long_only"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_etf_long_short_225",
+    "name": "Trend Sma Cross Etf Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 135,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on etf assets with long_short exposure.",
+    "tags": [
+      "market_neutral",
+      "long_short",
+      "sma_cross",
+      "etf",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_etf_long_short_226",
+    "name": "Trend Ema Cross Etf Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 11,
+      "slow": 86,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on etf assets with long_short exposure.",
+    "tags": [
+      "ema_cross",
+      "long_short",
+      "event_driven",
+      "etf",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_etf_long_short_227",
+    "name": "Momentum Macd Etf Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 24,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on etf assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "long_short",
+      "macd",
+      "etf",
+      "pairs"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_etf_long_short_228",
+    "name": "MeanReversion Rsi Mean Revert Etf Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 25,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on etf assets with long_short exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "long_short",
+      "meanreversion",
+      "calendar",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_etf_long_short_229",
+    "name": "MeanReversion Bollinger Revert Etf Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 39,
+      "std": 2.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on etf assets with long_short exposure.",
+    "tags": [
+      "bollinger_revert",
+      "trend_following",
+      "long_short",
+      "meanreversion",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_etf_long_short_230",
+    "name": "Breakout Breakout Etf Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 40,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on etf assets with long_short exposure.",
+    "tags": [
+      "technical",
+      "long_short",
+      "etf",
+      "breakout"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_etf_long_short_231",
+    "name": "Breakout Donchian Breakout Etf Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 66,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on etf assets with long_short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "long_short",
+      "quantitative",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_etf_long_short_232",
+    "name": "Momentum Momentum 12 1 Etf Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 52,
+      "holding": 17
+    },
+    "description": "Momentum strategy using momentum_12_1 on etf assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "systematic",
+      "long_short",
+      "momentum_12_1",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_etf_long_short_233",
+    "name": "Volatility Volatility Target Etf Long Short",
+    "category": "Volatility",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on etf assets with long_short exposure.",
+    "tags": [
+      "volatility_target",
+      "long_short",
+      "volatility",
+      "etf",
+      "statistical"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_etf_long_short_234",
+    "name": "StatArb Stat Arb Etf Long Short",
+    "category": "StatArb",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 74,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on etf assets with long_short exposure.",
+    "tags": [
+      "machine_learning",
+      "long_short",
+      "statarb",
+      "etf",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_etf_long_short_235",
+    "name": "ML Ml Logreg Etf Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on etf assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "risk_parity",
+      "long_short",
+      "ml_logreg",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_etf_long_short_236",
+    "name": "ML Ml Xgb Etf Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on etf assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "ml_xgb",
+      "factor",
+      "long_short",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_etf_long_short_237",
+    "name": "Carry Carry Etf Long Short",
+    "category": "Carry",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 87,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on etf assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "carry",
+      "etf",
+      "momentum"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_etf_long_short_238",
+    "name": "Seasonality Seasonality Etf Long Short",
+    "category": "Seasonality",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 11,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on etf assets with long_short exposure.",
+    "tags": [
+      "value",
+      "seasonality",
+      "etf",
+      "long_short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_etf_long_short_239",
+    "name": "Options Options Spread Etf Long Short",
+    "category": "Options",
+    "type": "long_short",
+    "asset_class": "etf",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on etf assets with long_short exposure.",
+    "tags": [
+      "options_spread",
+      "carry",
+      "options",
+      "long_short",
+      "etf"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_futures_long_short_240",
+    "name": "Trend Sma Cross Futures Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 30,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on futures assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "volatility",
+      "sma_cross",
+      "futures",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_futures_long_short_241",
+    "name": "Trend Ema Cross Futures Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 6,
+      "slow": 21,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on futures assets with long_short exposure.",
+    "tags": [
+      "macro",
+      "ema_cross",
+      "long_short",
+      "futures",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_futures_long_short_242",
+    "name": "Momentum Macd Futures Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 19,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on futures assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "high_frequency",
+      "long_short",
+      "macd",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_futures_long_short_243",
+    "name": "MeanReversion Rsi Mean Revert Futures Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 19,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on futures assets with long_short exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "long_short",
+      "meanreversion",
+      "intraday",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_futures_long_short_244",
+    "name": "MeanReversion Bollinger Revert Futures Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 14,
+      "std": 1.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on futures assets with long_short exposure.",
+    "tags": [
+      "swing",
+      "bollinger_revert",
+      "long_short",
+      "meanreversion",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_futures_long_short_245",
+    "name": "Breakout Breakout Futures Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 55,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on futures assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "futures",
+      "breakout",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_futures_long_short_246",
+    "name": "Breakout Donchian Breakout Futures Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 21,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on futures assets with long_short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "long_short",
+      "multi_asset",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_futures_long_short_247",
+    "name": "Momentum Momentum 12 1 Futures Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 67,
+      "holding": 12
+    },
+    "description": "Momentum strategy using momentum_12_1 on futures assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "long_only",
+      "long_short",
+      "momentum_12_1",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_futures_long_short_248",
+    "name": "Volatility Volatility Target Futures Long Short",
+    "category": "Volatility",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on futures assets with long_short exposure.",
+    "tags": [
+      "market_neutral",
+      "volatility_target",
+      "long_short",
+      "volatility",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_futures_long_short_249",
+    "name": "StatArb Stat Arb Futures Long Short",
+    "category": "StatArb",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 29,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on futures assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "statarb",
+      "event_driven",
+      "futures",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_futures_long_short_250",
+    "name": "ML Ml Logreg Futures Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on futures assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "long_short",
+      "pairs",
+      "ml_logreg",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_futures_long_short_251",
+    "name": "ML Ml Xgb Futures Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on futures assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "ml_xgb",
+      "long_short",
+      "calendar",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_futures_long_short_252",
+    "name": "Carry Carry Futures Long Short",
+    "category": "Carry",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 42,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on futures assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "carry",
+      "trend_following",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_futures_long_short_253",
+    "name": "Seasonality Seasonality Futures Long Short",
+    "category": "Seasonality",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 2,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on futures assets with long_short exposure.",
+    "tags": [
+      "technical",
+      "seasonality",
+      "futures",
+      "long_short"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_futures_long_short_254",
+    "name": "Options Options Spread Futures Long Short",
+    "category": "Options",
+    "type": "long_short",
+    "asset_class": "futures",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on futures assets with long_short exposure.",
+    "tags": [
+      "options_spread",
+      "options",
+      "long_short",
+      "quantitative",
+      "futures"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_fx_long_short_255",
+    "name": "Trend Sma Cross Fx Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 45,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on fx assets with long_short exposure.",
+    "tags": [
+      "systematic",
+      "long_short",
+      "sma_cross",
+      "fx",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_fx_long_short_256",
+    "name": "Trend Ema Cross Fx Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 21,
+      "slow": 36,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on fx assets with long_short exposure.",
+    "tags": [
+      "ema_cross",
+      "statistical",
+      "long_short",
+      "fx",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_fx_long_short_257",
+    "name": "Momentum Macd Fx Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 34,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on fx assets with long_short exposure.",
+    "tags": [
+      "machine_learning",
+      "momentum",
+      "long_short",
+      "macd",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_fx_long_short_258",
+    "name": "MeanReversion Rsi Mean Revert Fx Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 13,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on fx assets with long_short exposure.",
+    "tags": [
+      "risk_parity",
+      "rsi_mean_revert",
+      "long_short",
+      "meanreversion",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_fx_long_short_259",
+    "name": "MeanReversion Bollinger Revert Fx Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 29,
+      "std": 3.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on fx assets with long_short exposure.",
+    "tags": [
+      "bollinger_revert",
+      "factor",
+      "long_short",
+      "meanreversion",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_fx_long_short_260",
+    "name": "Breakout Breakout Fx Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 20,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on fx assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "fx",
+      "breakout",
+      "momentum"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_fx_long_short_261",
+    "name": "Breakout Donchian Breakout Fx Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 36,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on fx assets with long_short exposure.",
+    "tags": [
+      "value",
+      "breakout",
+      "donchian_breakout",
+      "long_short",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_fx_long_short_262",
+    "name": "Momentum Momentum 12 1 Fx Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 82,
+      "holding": 7
+    },
+    "description": "Momentum strategy using momentum_12_1 on fx assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "carry",
+      "long_short",
+      "momentum_12_1",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_fx_long_short_263",
+    "name": "Volatility Volatility Target Fx Long Short",
+    "category": "Volatility",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on fx assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "volatility",
+      "fx",
+      "volatility_target"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_fx_long_short_264",
+    "name": "StatArb Stat Arb Fx Long Short",
+    "category": "StatArb",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 44,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on fx assets with long_short exposure.",
+    "tags": [
+      "macro",
+      "long_short",
+      "statarb",
+      "fx",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_fx_long_short_265",
+    "name": "ML Ml Logreg Fx Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on fx assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "high_frequency",
+      "long_short",
+      "ml_logreg",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_fx_long_short_266",
+    "name": "ML Ml Xgb Fx Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on fx assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "ml_xgb",
+      "long_short",
+      "intraday",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_fx_long_short_267",
+    "name": "Carry Carry Fx Long Short",
+    "category": "Carry",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 57,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on fx assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "carry",
+      "fx",
+      "swing"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_fx_long_short_268",
+    "name": "Seasonality Seasonality Fx Long Short",
+    "category": "Seasonality",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 5,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on fx assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "seasonality",
+      "fx",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_fx_long_short_269",
+    "name": "Options Options Spread Fx Long Short",
+    "category": "Options",
+    "type": "long_short",
+    "asset_class": "fx",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on fx assets with long_short exposure.",
+    "tags": [
+      "options_spread",
+      "options",
+      "long_short",
+      "multi_asset",
+      "fx"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_crypto_long_short_270",
+    "name": "Trend Sma Cross Crypto Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 10,
+      "slow": 60,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on crypto assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "crypto",
+      "sma_cross",
+      "long_only",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_crypto_long_short_271",
+    "name": "Trend Ema Cross Crypto Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 16,
+      "slow": 51,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on crypto assets with long_short exposure.",
+    "tags": [
+      "market_neutral",
+      "ema_cross",
+      "long_short",
+      "crypto",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_crypto_long_short_272",
+    "name": "Momentum Macd Crypto Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 10,
+      "slow": 29,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on crypto assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "long_short",
+      "event_driven",
+      "crypto",
+      "macd"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_crypto_long_short_273",
+    "name": "MeanReversion Rsi Mean Revert Crypto Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 7,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on crypto assets with long_short exposure.",
+    "tags": [
+      "rsi_mean_revert",
+      "long_short",
+      "crypto",
+      "meanreversion",
+      "pairs"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_crypto_long_short_274",
+    "name": "MeanReversion Bollinger Revert Crypto Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 44,
+      "std": 2.5
+    },
+    "description": "MeanReversion strategy using bollinger_revert on crypto assets with long_short exposure.",
+    "tags": [
+      "bollinger_revert",
+      "long_short",
+      "crypto",
+      "meanreversion",
+      "calendar"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_crypto_long_short_275",
+    "name": "Breakout Breakout Crypto Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 35,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on crypto assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "trend_following",
+      "breakout",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_crypto_long_short_276",
+    "name": "Breakout Donchian Breakout Crypto Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 51,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on crypto assets with long_short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "technical",
+      "long_short",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_crypto_long_short_277",
+    "name": "Momentum Momentum 12 1 Crypto Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 97,
+      "holding": 22
+    },
+    "description": "Momentum strategy using momentum_12_1 on crypto assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "long_short",
+      "quantitative",
+      "momentum_12_1",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_crypto_long_short_278",
+    "name": "Volatility Volatility Target Crypto Long Short",
+    "category": "Volatility",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.13,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on crypto assets with long_short exposure.",
+    "tags": [
+      "volatility_target",
+      "systematic",
+      "long_short",
+      "volatility",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_crypto_long_short_279",
+    "name": "StatArb Stat Arb Crypto Long Short",
+    "category": "StatArb",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 59,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on crypto assets with long_short exposure.",
+    "tags": [
+      "statistical",
+      "long_short",
+      "statarb",
+      "crypto",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_crypto_long_short_280",
+    "name": "ML Ml Logreg Crypto Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on crypto assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "machine_learning",
+      "long_short",
+      "ml_logreg",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_crypto_long_short_281",
+    "name": "ML Ml Xgb Crypto Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on crypto assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "risk_parity",
+      "ml_xgb",
+      "long_short",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_crypto_long_short_282",
+    "name": "Carry Carry Crypto Long Short",
+    "category": "Carry",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 72,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on crypto assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "carry",
+      "crypto",
+      "factor"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_crypto_long_short_283",
+    "name": "Seasonality Seasonality Crypto Long Short",
+    "category": "Seasonality",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 8,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on crypto assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "seasonality",
+      "momentum",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_crypto_long_short_284",
+    "name": "Options Options Spread Crypto Long Short",
+    "category": "Options",
+    "type": "long_short",
+    "asset_class": "crypto",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "iron_condor",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on crypto assets with long_short exposure.",
+    "tags": [
+      "value",
+      "options_spread",
+      "options",
+      "long_short",
+      "crypto"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "sma_cross_commodity_long_short_285",
+    "name": "Trend Sma Cross Commodity Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "sma_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 25,
+      "slow": 75,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using sma_cross on commodity assets with long_short exposure.",
+    "tags": [
+      "carry",
+      "commodity",
+      "long_short",
+      "sma_cross",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ema_cross_commodity_long_short_286",
+    "name": "Trend Ema Cross Commodity Long Short",
+    "category": "Trend",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "ema_cross",
+    "engine": "moving_average_crossover",
+    "params": {
+      "fast": 11,
+      "slow": 66,
+      "threshold": 0.0
+    },
+    "description": "Trend strategy using ema_cross on commodity assets with long_short exposure.",
+    "tags": [
+      "ema_cross",
+      "commodity",
+      "long_short",
+      "volatility",
+      "trend"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "macd_commodity_long_short_287",
+    "name": "Momentum Macd Commodity Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "macd",
+    "engine": "macd",
+    "params": {
+      "fast": 15,
+      "slow": 24,
+      "signal": 9,
+      "threshold": 0.0
+    },
+    "description": "Momentum strategy using macd on commodity assets with long_short exposure.",
+    "tags": [
+      "macro",
+      "momentum",
+      "commodity",
+      "long_short",
+      "macd"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rsi_mean_revert_commodity_long_short_288",
+    "name": "MeanReversion Rsi Mean Revert Commodity Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "rsi_mean_revert",
+    "engine": "rsi",
+    "params": {
+      "period": 22,
+      "oversold": 30,
+      "overbought": 70
+    },
+    "description": "MeanReversion strategy using rsi_mean_revert on commodity assets with long_short exposure.",
+    "tags": [
+      "commodity",
+      "rsi_mean_revert",
+      "high_frequency",
+      "long_short",
+      "meanreversion"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "bollinger_revert_commodity_long_short_289",
+    "name": "MeanReversion Bollinger Revert Commodity Long Short",
+    "category": "MeanReversion",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "bollinger_revert",
+    "engine": "bollinger",
+    "params": {
+      "period": 19,
+      "std": 2.0
+    },
+    "description": "MeanReversion strategy using bollinger_revert on commodity assets with long_short exposure.",
+    "tags": [
+      "bollinger_revert",
+      "commodity",
+      "long_short",
+      "meanreversion",
+      "intraday"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "breakout_commodity_long_short_290",
+    "name": "Breakout Breakout Commodity Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "breakout",
+    "engine": "breakout",
+    "params": {
+      "lookback": 50,
+      "vol_filter": true
+    },
+    "description": "Breakout strategy using breakout on commodity assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "breakout",
+      "commodity",
+      "swing"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "donchian_breakout_commodity_long_short_291",
+    "name": "Breakout Donchian Breakout Commodity Long Short",
+    "category": "Breakout",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "donchian_breakout",
+    "engine": "donchian",
+    "params": {
+      "lookback": 66,
+      "atr_period": 10
+    },
+    "description": "Breakout strategy using donchian_breakout on commodity assets with long_short exposure.",
+    "tags": [
+      "breakout",
+      "donchian_breakout",
+      "commodity",
+      "long_short",
+      "position"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "momentum_12_1_commodity_long_short_292",
+    "name": "Momentum Momentum 12 1 Commodity Long Short",
+    "category": "Momentum",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "momentum_12_1",
+    "engine": "momentum",
+    "params": {
+      "lookback": 112,
+      "holding": 17
+    },
+    "description": "Momentum strategy using momentum_12_1 on commodity assets with long_short exposure.",
+    "tags": [
+      "momentum",
+      "commodity",
+      "long_short",
+      "multi_asset",
+      "momentum_12_1"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "volatility_target_commodity_long_short_293",
+    "name": "Volatility Volatility Target Commodity Long Short",
+    "category": "Volatility",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "volatility_target",
+    "engine": "volatility",
+    "params": {
+      "target_vol": 0.08,
+      "lookback": 20
+    },
+    "description": "Volatility strategy using volatility_target on commodity assets with long_short exposure.",
+    "tags": [
+      "volatility_target",
+      "commodity",
+      "long_short",
+      "volatility",
+      "long_only"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "stat_arb_commodity_long_short_294",
+    "name": "StatArb Stat Arb Commodity Long Short",
+    "category": "StatArb",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "stat_arb",
+    "engine": "stat_arb",
+    "params": {
+      "half_life": 74,
+      "entry_z": 1.0
+    },
+    "description": "StatArb strategy using stat_arb on commodity assets with long_short exposure.",
+    "tags": [
+      "market_neutral",
+      "commodity",
+      "long_short",
+      "statarb",
+      "stat_arb"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_logreg_commodity_long_short_295",
+    "name": "ML Ml Logreg Commodity Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "ml_logreg",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "logreg"
+    },
+    "description": "ML strategy using ml_logreg on commodity assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "commodity",
+      "long_short",
+      "ml_logreg",
+      "event_driven"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "ml_xgb_commodity_long_short_296",
+    "name": "ML Ml Xgb Commodity Long Short",
+    "category": "ML",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "ml_xgb",
+    "engine": "ml",
+    "params": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volatility",
+        "rsi"
+      ],
+      "model": "xgb"
+    },
+    "description": "ML strategy using ml_xgb on commodity assets with long_short exposure.",
+    "tags": [
+      "ml",
+      "commodity",
+      "ml_xgb",
+      "long_short",
+      "pairs"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "carry_commodity_long_short_297",
+    "name": "Carry Carry Commodity Long Short",
+    "category": "Carry",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "carry",
+    "engine": "carry",
+    "params": {
+      "yield_lookback": 87,
+      "momentum_lookback": 10
+    },
+    "description": "Carry strategy using carry on commodity assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "calendar",
+      "carry",
+      "commodity"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "seasonality_commodity_long_short_298",
+    "name": "Seasonality Seasonality Commodity Long Short",
+    "category": "Seasonality",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "seasonality",
+    "engine": "seasonality",
+    "params": {
+      "month": 11,
+      "weekday": 3
+    },
+    "description": "Seasonality strategy using seasonality on commodity assets with long_short exposure.",
+    "tags": [
+      "long_short",
+      "seasonality",
+      "trend_following",
+      "commodity"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "options_spread_commodity_long_short_299",
+    "name": "Options Options Spread Commodity Long Short",
+    "category": "Options",
+    "type": "long_short",
+    "asset_class": "commodity",
+    "family": "options_spread",
+    "engine": "options",
+    "params": {
+      "spread_type": "bull_put",
+      "dte": 30
+    },
+    "description": "Options strategy using options_spread on commodity assets with long_short exposure.",
+    "tags": [
+      "options_spread",
+      "technical",
+      "commodity",
+      "options",
+      "long_short"
+    ],
+    "version": "1.0.0"
+  }
+]
