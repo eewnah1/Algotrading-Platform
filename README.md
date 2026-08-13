@@ -8,6 +8,20 @@ An institutional-grade, open-source algorithmic trading platform built to rival 
 
 > Dashboard: live execution with market depth, order entry, risk telemetry, backtesting, 1000+ strategy library with filters, AI strategy lab, reporting, data cleaning, operations, and system health.
 
+## All Dashboards Workspace
+
+Clone and monitor every `eewnah1` dashboard repo in one place:
+
+```bash
+cd workspace
+./clone_all.sh
+code dashboards.code-workspace
+```
+
+Open the Colab notebook for live health checks:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eewnah1/Algotrading-Platform/blob/main/workspace/notebooks/dashboards_colab.ipynb)
+
 ## Modules
 
 - **Live Execution** — portfolio monitoring, order blotter, positions, PnL, and risk metrics in real time.

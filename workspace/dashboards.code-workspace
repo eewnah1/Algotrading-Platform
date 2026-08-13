@@ -1,0 +1,37 @@
+{
+  "folders": [
+    {"name": "Algotrading-Platform", "path": ".."},
+    {"name": "Options-Market-Maker-Simulator", "path": "repos/Options-Market-Maker-Simulator"},
+    {"name": "ichimoku-signals-app", "path": "repos/ichimoku-signals-app"},
+    {"name": "Modernise-TradeMaster", "path": "repos/Modernise-TradeMaster"},
+    {"name": "aussuper-switch-predictor", "path": "repos/aussuper-switch-predictor"},
+    {"name": "RL_QuantTrading", "path": "repos/RL_QuantTrading"},
+    {"name": "srt-next-day-predictor", "path": "repos/srt-next-day-predictor"},
+    {"name": "SGX-G3B-Predictor", "path": "repos/SGX-G3B-Predictor"},
+    {"name": "sgx-cfa-next-day-predictor", "path": "repos/sgx-cfa-next-day-predictor"},
+    {"name": "hst-next-day-predictor", "path": "repos/hst-next-day-predictor"},
+    {"name": "clr-next-day-predictor", "path": "repos/clr-next-day-predictor"},
+    {"name": "Schroder-Multi-Asset-Revolution-Fund-Next-Day-and-Multi-Horizon-Predictor", "path": "repos/Schroder-Multi-Asset-Revolution-Fund-Next-Day-and-Multi-Horizon-Predictor"},
+    {"name": "SLV-Silver-ETF-Multi-Horizon-Predictor", "path": "repos/SLV-Silver-ETF-Multi-Horizon-Predictor"},
+    {"name": "PineBridge-Acorns-of-Asia-Balanced-Predictor", "path": "repos/PineBridge-Acorns-of-Asia-Balanced-Predictor"},
+    {"name": "Neuberger-Berman-Next-Gen-Connectivity-Predictor", "path": "repos/Neuberger-Berman-Next-Gen-Connectivity-Predictor"},
+    {"name": "MG-Lux-Japan-Fund-Multi-Horizon-Predictor", "path": "repos/MG-Lux-Japan-Fund-Multi-Horizon-Predictor"},
+    {"name": "LionGlobal-Korea-Fund-Multi-Horizon-Direction-Predictor", "path": "repos/LionGlobal-Korea-Fund-Multi-Horizon-Direction-Predictor"},
+    {"name": "KOSPI-Next-Day-Predictor", "path": "repos/KOSPI-Next-Day-Predictor"},
+    {"name": "International-Fund-Switch-In-Next-Day-Predictor", "path": "repos/International-Fund-Switch-In-Next-Day-Predictor"},
+    {"name": "First-Sentier-Bridge-Fund-Next-Day-and-Multi-Horizon-Predictor", "path": "repos/First-Sentier-Bridge-Fund-Next-Day-and-Multi-Horizon-Predictor"},
+    {"name": "BlackRock-World-Gold-Fund-Next-Day-Predictor", "path": "repos/BlackRock-World-Gold-Fund-Next-Day-Predictor"},
+    {"name": "ASX200-Next-Day-Magnitude-Predictor", "path": "repos/ASX200-Next-Day-Magnitude-Predictor"},
+    {"name": "portfolio-optimizatio", "path": "repos/portfolio-optimizatio"},
+    {"name": "earth2studio", "path": "repos/earth2studio"},
+    {"name": "ausuper-switch", "path": "repos/ausuper-switch"},
+    {"name": "battleship", "path": "repos/battleship"},
+    {"name": "workspace", "path": "."}
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/__pycache__": true
+    }
+  }
+}
