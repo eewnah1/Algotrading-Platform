@@ -76,12 +76,12 @@ class StrategyRunner:
                 std = float(params.get("std", 2.0))
                 upper, _, lower = _bbands(close, period, std)
                 sig = np.where(close < lower, 1, np.where(close > upper, -1, 0))
-            elif family in ("breakout", "donchian_breakout"):
+            elif family in ("breakout", "donchian_breakout", "volume_breakout", "range_break"):
                 lookback = int(params.get("lookback", 20))
                 upper = close.rolling(lookback, min_periods=1).max()
                 lower = close.rolling(lookback, min_periods=1).min()
                 sig = np.where(close > upper.shift(1), 1, np.where(close < lower.shift(1), -1, 0))
-            elif family == "momentum_12_1":
+            elif family in ("momentum_12_1", "momentum_52_high", "momentum_etf_rotation"):
                 lookback = int(params.get("lookback", 20))
                 mom = close.pct_change(lookback)
                 sig = np.where(mom > 0, 1, np.where(mom < 0, -1, 0))
@@ -91,18 +91,26 @@ class StrategyRunner:
                 vol = ret.rolling(lookback, min_periods=1).std() * np.sqrt(252)
                 target = float(params.get("target_vol", 0.15))
                 sig = np.where(vol < target, 1, -1)
-            elif family in ("stat_arb", "carry", "seasonality"):
+            elif family in ("stat_arb", "carry", "seasonality", "yield_curve", "calendar_spread", "gamma_scalp"):
                 ret = close.pct_change()
                 sig = np.where(ret > 0, 1, np.where(ret < 0, -1, 0))
-            elif family in ("ml_logreg", "ml_xgb"):
+            elif family in ("ml_logreg", "ml_xgb", "ml_rf", "ml_svc", "ml_nn"):
                 ret1 = close.pct_change()
                 ret5 = close.pct_change(5)
                 vol = ret1.rolling(20, min_periods=1).std()
                 rsi = _rsi(close, 14)
                 score = np.sign(ret1.fillna(0) + ret5.fillna(0) * 0.5 - vol.fillna(0) + (rsi - 50) / 100)
                 sig = np.where(score > 0, 1, np.where(score < 0, -1, 0))
-            elif family == "options_spread":
+            elif family in ("options_spread", "keltner_revert"):
                 ret = close.pct_change().rolling(5, min_periods=1).mean()
+                sig = np.where(ret > 0, 1, np.where(ret < 0, -1, 0))
+            elif family in ("quality_factor", "dividend_growth", "low_volatility", "factor_momentum"):
+                lookback = int(params.get("lookback", 30))
+                ret = close.pct_change(lookback)
+                sig = np.where(ret > 0, 1, np.where(ret < 0, -1, 0))
+            elif family in ("adx_trend", "volume_profile", "trend_reversal"):
+                lookback = int(params.get("lookback", params.get("period", 20)))
+                ret = close.pct_change(lookback)
                 sig = np.where(ret > 0, 1, np.where(ret < 0, -1, 0))
             else:
                 sig = np.zeros(len(close), dtype=int)
