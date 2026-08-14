@@ -4,7 +4,7 @@ An institutional-grade, open-source algorithmic trading platform built to rival 
 
 ## Live Dashboard
 
-**Public no-auth dashboard:** https://believe-steam-heath-members.trycloudflare.com
+**Public no-auth dashboard:** https://stale-spoons-hope.loca.lt
 
 > Dashboard: live execution with market depth, order entry, risk telemetry, backtesting, 1000+ strategy library with filters, AI strategy lab, reporting, data cleaning, operations, and system health.
 
