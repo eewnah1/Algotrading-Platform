@@ -147,6 +147,9 @@ class Experiment(BaseModel):
     status: Literal["running", "passed", "failed", "review"] = "running"
     backtest_id: str | None = None
     research_note: str = ""
+    strategy_id: str = ""
+    strategy_family: str = ""
+    strategy_params: dict[str, Any] = Field(default_factory=dict)
 
 
 class DataSourceHealth(BaseModel):

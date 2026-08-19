@@ -111,4 +111,4 @@ def generate_catalog(n: int = 300, path: Path | None = None) -> list[dict]:
 
 
 if __name__ == "__main__":
-    generate_catalog(1000, Path(__file__).with_name("catalog.json"))
+    generate_catalog(2000, Path(__file__).with_name("catalog.json"))

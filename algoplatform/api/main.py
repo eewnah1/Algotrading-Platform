@@ -36,7 +36,7 @@ portfolio = PortfolioManager()
 registry = StrategyRegistry()
 lab = StrategyLab()
 scheduler = OpsScheduler()
-engine = BacktestEngine(market_data)
+engine = BacktestEngine(market_data, registry=registry)
 
 
 @asynccontextmanager
@@ -200,7 +200,23 @@ def list_backtests(limit: int = Query(20, ge=1, le=50)) -> dict:
 
 @app.post("/api/v1/lab/generate", response_model=Experiment)
 def lab_generate(payload: dict) -> Experiment:
-    return lab.generate(payload.get("prompt", "momentum strategy"))
+    return lab.generate(payload.get("prompt", "momentum strategy"), registry=registry)
+
+
+@app.post("/api/v1/lab/{exp_id}/backtest", response_model=BacktestResult)
+def run_lab_backtest(exp_id: str) -> BacktestResult:
+    exp = lab.get(exp_id)
+    if not exp:
+        raise HTTPException(status_code=404, detail="experiment not found")
+    if not exp.strategy_id:
+        raise HTTPException(status_code=400, detail="experiment has no runnable strategy")
+    result = engine.run(
+        exp.strategy_id,
+        symbols=settings.default_universe[:3],
+        initial_cash=settings.paper_cash,
+    )
+    lab.update_status(exp_id, "passed" if result.status == "completed" else "failed", backtest_id=result.id)
+    return result
 
 
 @app.get("/api/v1/lab/experiments")
@@ -312,11 +328,11 @@ def live_feed() -> StreamingResponse:
         while True:
             _update_portfolio()
             snap = portfolio.get_portfolio()
-            quotes = [q.model_dump() for q in market_data.snapshot()]
+            quotes = [q.model_dump(mode="json") for q in market_data.snapshot()]
             data = json.dumps(
                 {
                     "timestamp": datetime.utcnow().isoformat(),
-                    "portfolio": snap.model_dump(),
+                    "portfolio": snap.model_dump(mode="json"),
                     "quotes": quotes,
                 }
             )

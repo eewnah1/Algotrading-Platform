@@ -19,9 +19,13 @@ logger = logging.getLogger(__name__)
 class BacktestEngine:
     """Event-driven paper backtester with transaction costs and basic analytics."""
 
-    def __init__(self, market_data: MarketDataService | None = None) -> None:
+    def __init__(
+        self,
+        market_data: MarketDataService | None = None,
+        registry: StrategyRegistry | None = None,
+    ) -> None:
         self.market_data = market_data or MarketDataService()
-        self.registry = StrategyRegistry()
+        self.registry = registry or StrategyRegistry()
         # In-memory result store (last N backtests) so GET /backtests/{id} works
         self._results: dict[str, BacktestResult] = {}
         self._max_store = 50
@@ -65,7 +69,7 @@ class BacktestEngine:
 
         price_data: dict[str, pd.DataFrame] = {}
         for sym in symbols:
-            df = self.market_data.get_history(sym)
+            df = self.market_data.get_history(sym, start=start_dt, end=end_dt, interval="1d")
             if df.empty:
                 logger.warning("No history for %s", sym)
                 continue
@@ -189,12 +193,14 @@ class BacktestEngine:
         else:
             metrics.win_rate = 0.0
 
+        result_start = all_dates[0].to_pydatetime() if all_dates else datetime.utcnow()
+        result_end = all_dates[-1].to_pydatetime() if all_dates else datetime.utcnow()
         result = BacktestResult(
             id=bt_id,
             status="completed",
             strategy_id=strategy_id,
-            start=datetime.utcnow(),
-            end=datetime.utcnow(),
+            start=result_start,
+            end=result_end,
             metrics=metrics,
             equity_curve=equity_curve,
             trades=trades,

@@ -13,7 +13,7 @@ class StrategyRegistry:
         self.catalog_path = catalog_path or Path(__file__).with_name("catalog.json")
         if not self.catalog_path.exists():
             from algoplatform.strategies.generator import generate_catalog
-            generate_catalog(300, self.catalog_path)
+            generate_catalog(2000, self.catalog_path)
         self._strategies: dict[str, Strategy] = {}
         self._load()
 
@@ -49,6 +49,10 @@ class StrategyRegistry:
         if not strat:
             return None
         return StrategyRunner(strat)
+
+    def register(self, strategy: Strategy) -> None:
+        self._strategies[strategy.id] = strategy
+        logger.info("Registered strategy %s", strategy.id)
 
     def categories(self) -> list[str]:
         return sorted({s.category for s in self._strategies.values()})

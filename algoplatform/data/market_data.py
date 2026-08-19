@@ -20,29 +20,60 @@ class MarketDataService:
         self._last_update: dict[str, datetime] = {}
         self._health: dict[str, DataSourceHealth] = {}
 
-    def _cache_path(self, symbol: str) -> Path:
-        return self.cache_dir / f"{symbol.replace('/', '-')}.parquet"
+    def _cache_path(
+        self,
+        symbol: str,
+        period: str | None = "1y",
+        interval: str = "1d",
+        start: datetime | pd.Timestamp | None = None,
+        end: datetime | pd.Timestamp | None = None,
+    ) -> Path:
+        name = symbol.replace("/", "-")
+        if start is not None and end is not None:
+            s = pd.to_datetime(start).strftime("%Y%m%d")
+            e = pd.to_datetime(end).strftime("%Y%m%d")
+            name += f"_{s}_{e}"
+        elif period:
+            name += f"_{period}"
+        name += f"_{interval}"
+        return self.cache_dir / f"{name}.parquet"
 
     def get_history(
         self,
         symbol: str,
-        period: str = "1y",
+        period: str | None = "1y",
         interval: str = "1d",
-        end: datetime | None = None,
+        start: datetime | pd.Timestamp | None = None,
+        end: datetime | pd.Timestamp | None = None,
     ) -> pd.DataFrame:
-        path = self._cache_path(symbol)
+        path = self._cache_path(symbol, period=period, interval=interval, start=start, end=end)
         end = end or datetime.utcnow()
+        end = pd.to_datetime(end)
         if path.exists():
             try:
                 df = pd.read_parquet(path)
                 df.index = pd.to_datetime(df.index)
-                if not df.empty and (end - df.index[-1]).days < 1:
-                    return df
+                if not df.empty:
+                    # Historical ranges are immutable; only refresh near-live data
+                    is_live = (datetime.utcnow() - end).days < 1
+                    if not is_live or (end - df.index[-1]).days < 1:
+                        return df
             except Exception:
                 pass
         try:
             ticker = yf.Ticker(symbol)
-            df = ticker.history(period=period, interval=interval, auto_adjust=True)
+            if start is not None:
+                start_dt = pd.to_datetime(start)
+                # yfinance end is exclusive
+                end_dt = end + timedelta(days=1)
+                df = ticker.history(
+                    start=start_dt.strftime("%Y-%m-%d"),
+                    end=end_dt.strftime("%Y-%m-%d"),
+                    interval=interval,
+                    auto_adjust=True,
+                )
+            else:
+                df = ticker.history(period=period, interval=interval, auto_adjust=True)
             if not df.empty:
                 df.index = pd.to_datetime(df.index)
                 if df.index.tz is not None:
