@@ -7,15 +7,37 @@ from algoplatform.strategies.runner import StrategyRunner
 
 logger = logging.getLogger(__name__)
 
+TARGET_CATALOG_SIZE = 10000
+
 
 class StrategyRegistry:
     def __init__(self, catalog_path: Path | None = None) -> None:
         self.catalog_path = catalog_path or Path(__file__).with_name("catalog.json")
-        if not self.catalog_path.exists():
-            from algoplatform.strategies.generator import generate_catalog
-            generate_catalog(2000, self.catalog_path)
         self._strategies: dict[str, Strategy] = {}
+        self._ensure_catalog()
         self._load()
+
+    def _ensure_catalog(self) -> None:
+        """Create or expand catalog to TARGET_CATALOG_SIZE (equity/ETF focused)."""
+        need_generate = False
+        if not self.catalog_path.exists():
+            need_generate = True
+        else:
+            try:
+                data = json.loads(self.catalog_path.read_text())
+                if len(data) < TARGET_CATALOG_SIZE:
+                    logger.info(
+                        "Catalog has %s strategies; expanding to %s",
+                        len(data),
+                        TARGET_CATALOG_SIZE,
+                    )
+                    need_generate = True
+            except Exception:
+                need_generate = True
+        if need_generate:
+            from algoplatform.strategies.generator import generate_catalog
+            generate_catalog(TARGET_CATALOG_SIZE, self.catalog_path)
+            logger.info("Wrote strategy catalog with %s entries to %s", TARGET_CATALOG_SIZE, self.catalog_path)
 
     def _load(self) -> None:
         data = json.loads(self.catalog_path.read_text())

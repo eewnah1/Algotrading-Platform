@@ -6,7 +6,7 @@ An institutional-grade, open-source algorithmic trading platform built to rival 
 
 **Public no-auth dashboard:** https://zsisscudlceoreo7i2fa6otu2m.srv.us
 
-> Dashboard: live execution with market depth, order entry, risk telemetry, backtesting, 1000+ strategy library with filters, AI strategy lab, reporting, data cleaning, operations, and system health.
+> Dashboard: live execution with market depth, order entry, risk telemetry, backtesting, 10,000 strategy library (equity & ETF focused) with filters, AI strategy lab, reporting, data cleaning, operations, and system health.
 
 ## All Dashboards Workspace
 
@@ -30,7 +30,7 @@ Open the Colab notebook for live health checks:
 - **Reporting** — daily PnL, cost attribution, and drift analysis.
 - **Data Cleaning** — anomaly detection and repair for OHLCV data.
 - **Operations** — scheduled job scheduler with live logs.
-- **1000 Strategy Catalog** — diverse technical, statistical, machine-learning, options, macro, factor, and volume strategies.
+- **10,000 Strategy Catalog** — diverse technical, statistical, machine-learning, options, macro, factor, and volume strategies (heavy equity & ETF focus).
 
 ## Quick Start
 
@@ -47,7 +47,7 @@ Open `http://localhost:8000`.
 - `algoplatform/data/` — market data fetcher and data cleaner.
 - `algoplatform/execution/` — paper broker and portfolio manager.
 - `algoplatform/backtest/` — event-driven backtester and metrics.
-- `algoplatform/strategies/` — 1000-strategy registry and signal runner.
+- `algoplatform/strategies/` — 10,000-strategy registry and signal runner.
 - `algoplatform/lab/` — AI strategy lab.
 - `algoplatform/reporting/` — PnL and cost reporting.
 - `algoplatform/operations/` — scheduler and job monitor.
