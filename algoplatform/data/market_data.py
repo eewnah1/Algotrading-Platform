@@ -29,14 +29,22 @@ class MarketDataService:
         period: str = "1y",
         interval: str = "1d",
         end: datetime | None = None,
+        start: datetime | str | None = None,
     ) -> pd.DataFrame:
         path = self._cache_path(symbol)
         end = end or datetime.utcnow()
+        if isinstance(end, str):
+            end = pd.to_datetime(end).to_pydatetime()
+        start_dt = None
+        if start is not None:
+            start_dt = pd.to_datetime(start).to_pydatetime() if not isinstance(start, datetime) else start
         if path.exists():
             try:
                 df = pd.read_parquet(path)
                 df.index = pd.to_datetime(df.index)
                 if not df.empty and (end - df.index[-1]).days < 1:
+                    if start_dt is not None:
+                        df = df.loc[start_dt:end]
                     return df
             except Exception:
                 try:
@@ -44,12 +52,23 @@ class MarketDataService:
                     if csv_path.exists():
                         df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
                         if not df.empty:
+                            if start_dt is not None:
+                                df = df.loc[start_dt:end]
                             return df
                 except Exception:
                     pass
         try:
             ticker = yf.Ticker(symbol)
-            df = ticker.history(period=period, interval=interval, auto_adjust=True)
+            if start_dt is not None:
+                yf_end = (end + timedelta(days=1)).strftime("%Y-%m-%d")
+                df = ticker.history(
+                    start=start_dt.strftime("%Y-%m-%d"),
+                    end=yf_end,
+                    interval=interval,
+                    auto_adjust=True,
+                )
+            else:
+                df = ticker.history(period=period, interval=interval, auto_adjust=True)
             if not df.empty:
                 df.index = pd.to_datetime(df.index)
                 if df.index.tz is not None:
@@ -67,6 +86,8 @@ class MarketDataService:
                     last_update=datetime.utcnow(),
                     latency_ms=0.0,
                 )
+                if start_dt is not None:
+                    df = df.loc[start_dt:end]
                 return df
         except Exception as e:
             logger.warning("yfinance fetch failed for %s: %s", symbol, e)
@@ -81,6 +102,8 @@ class MarketDataService:
                     df = pd.read_parquet(path)
                     df.index = pd.to_datetime(df.index)
                     if not df.empty:
+                        if start_dt is not None:
+                            df = df.loc[start_dt:end]
                         return df
                 except Exception:
                     pass
@@ -99,6 +122,8 @@ class MarketDataService:
                 last_update=datetime.utcnow(),
                 error=str(e),
             )
+            if start_dt is not None and not df.empty:
+                df = df.loc[start_dt:end]
             return df
         return pd.DataFrame(columns=["Open", "High", "Low", "Close", "Volume"])
 
