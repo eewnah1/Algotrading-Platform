@@ -20,65 +20,47 @@ class MarketDataService:
         self._last_update: dict[str, datetime] = {}
         self._health: dict[str, DataSourceHealth] = {}
 
-    def _cache_path(
-        self,
-        symbol: str,
-        period: str | None = "1y",
-        interval: str = "1d",
-        start: datetime | pd.Timestamp | None = None,
-        end: datetime | pd.Timestamp | None = None,
-    ) -> Path:
-        name = symbol.replace("/", "-")
-        if start is not None and end is not None:
-            s = pd.to_datetime(start).strftime("%Y%m%d")
-            e = pd.to_datetime(end).strftime("%Y%m%d")
-            name += f"_{s}_{e}"
-        elif period:
-            name += f"_{period}"
-        name += f"_{interval}"
-        return self.cache_dir / f"{name}.parquet"
+    def _cache_path(self, symbol: str) -> Path:
+        return self.cache_dir / f"{symbol.replace('/', '-')}.parquet"
 
     def get_history(
         self,
         symbol: str,
-        period: str | None = "1y",
+        period: str = "1y",
         interval: str = "1d",
-        start: datetime | pd.Timestamp | None = None,
-        end: datetime | pd.Timestamp | None = None,
+        end: datetime | None = None,
     ) -> pd.DataFrame:
-        path = self._cache_path(symbol, period=period, interval=interval, start=start, end=end)
+        path = self._cache_path(symbol)
         end = end or datetime.utcnow()
-        end = pd.to_datetime(end)
         if path.exists():
             try:
                 df = pd.read_parquet(path)
                 df.index = pd.to_datetime(df.index)
-                if not df.empty:
-                    # Historical ranges are immutable; only refresh near-live data
-                    is_live = (datetime.utcnow() - end).days < 1
-                    if not is_live or (end - df.index[-1]).days < 1:
-                        return df
+                if not df.empty and (end - df.index[-1]).days < 1:
+                    return df
             except Exception:
-                pass
+                try:
+                    csv_path = path.with_suffix(".csv")
+                    if csv_path.exists():
+                        df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+                        if not df.empty:
+                            return df
+                except Exception:
+                    pass
         try:
             ticker = yf.Ticker(symbol)
-            if start is not None:
-                start_dt = pd.to_datetime(start)
-                # yfinance end is exclusive
-                end_dt = end + timedelta(days=1)
-                df = ticker.history(
-                    start=start_dt.strftime("%Y-%m-%d"),
-                    end=end_dt.strftime("%Y-%m-%d"),
-                    interval=interval,
-                    auto_adjust=True,
-                )
-            else:
-                df = ticker.history(period=period, interval=interval, auto_adjust=True)
+            df = ticker.history(period=period, interval=interval, auto_adjust=True)
             if not df.empty:
                 df.index = pd.to_datetime(df.index)
                 if df.index.tz is not None:
                     df.index = df.index.tz_localize(None)
-                df.to_parquet(path)
+                try:
+                    df.to_parquet(path)
+                except Exception:
+                    try:
+                        df.to_csv(path.with_suffix(".csv"))
+                    except Exception:
+                        pass
                 self._health[symbol] = DataSourceHealth(
                     source="yfinance",
                     status="ok",
@@ -107,7 +89,10 @@ class MarketDataService:
             try:
                 df.to_parquet(path)
             except Exception:
-                pass
+                try:
+                    df.to_csv(path.with_suffix(".csv"))
+                except Exception:
+                    pass
             self._health[symbol] = DataSourceHealth(
                 source="synthetic",
                 status="degraded",
@@ -124,9 +109,8 @@ class MarketDataService:
         end: datetime | None = None,
         seed: int | None = None,
     ) -> pd.DataFrame:
-        """Deterministic GBM-style OHLCV so backtests work offline / under rate limits."""
         end = end or datetime.utcnow()
-        n = 1260  # ~5y business days so date filters still yield data
+        n = 1260
         rng = np.random.default_rng(abs(hash(symbol) % (2**32)) if seed is None else seed)
         base = 50 + (abs(hash(symbol)) % 400)
         dates = pd.bdate_range(end=end, periods=n)
@@ -192,7 +176,7 @@ class MarketDataService:
     def clean_cache(self, max_age_days: int = 7) -> int:
         removed = 0
         cutoff = datetime.utcnow() - timedelta(days=max_age_days)
-        for f in self.cache_dir.glob("*.parquet"):
+        for f in list(self.cache_dir.glob("*.parquet")) + list(self.cache_dir.glob("*.csv")):
             if datetime.fromtimestamp(f.stat().st_mtime) < cutoff:
                 f.unlink()
                 removed += 1
