@@ -127,22 +127,19 @@ function renderKPIs(summary) {
 async function refreshLive() {
   try {
     const [summary, positions, orders, risk, quotes] = await Promise.all([
-      fetchJSON('/api/v1/portfolio/summary'),
-      fetchJSON('/api/v1/portfolio/positions'),
+      fetchJSON('/api/v1/portfolio'),
+      fetchJSON('/api/v1/portfolio'),
       fetchJSON('/api/v1/orders'),
       fetchJSON('/api/v1/risk'),
-      fetchJSON('/api/v1/market/quotes'),
+      fetchJSON('/api/v1/market/snapshot'),
     ]);
+    const pos = summary.positions || positions.positions || positions || [];
     renderKPIs(summary);
-    renderPositions(positions);
-    renderOrders(orders);
+    renderPositions(Array.isArray(pos)?pos:[]);
+    renderOrders(Array.isArray(orders)?orders:(orders.items||[]));
     renderRisk(risk);
-    renderMarketWatch(quotes);
-    renderAllocation(positions);
-    renderEquity(summary.equity_curve||[], 'equityChart', 'Equity');
-    const depthSym = document.getElementById('depthSymbol').innerText || 'SPY';
-    const book = await fetchJSON('/api/v1/market/depth/'+depthSym);
-    renderOrderBook(book);
+    renderMarketWatch(Array.isArray(quotes)?quotes:(quotes.quotes||[]));
+    renderAllocation(Array.isArray(pos)?pos:[]);
   } catch(e) {}
 }
 
@@ -162,13 +159,14 @@ async function placeOrder() {
 
 async function loadLiveTradeJobs() {
   try {
-    const jobs = await fetchJSON('/api/v1/live-trades');
+    const jobs = await fetchJSON('/api/v1/live/trade/jobs');
     const tbody = document.querySelector('#liveTradeJobsTable tbody');
-    tbody.innerHTML = (jobs||[]).map(j => `<tr>
+    const list = Array.isArray(jobs) ? jobs : (jobs.items||[]);
+    tbody.innerHTML = list.map(j => `<tr>
       <td>${j.timestamp?new Date(j.timestamp).toLocaleTimeString():'-'}</td>
-      <td class="mono">${j.job_id||'-'}</td>
+      <td class="mono">${j.id||j.job_id||'-'}</td>
       <td class="mono">${j.strategy_id||'-'}</td>
-      <td>${j.signals_count||0}</td>
+      <td>${j.signals?Object.keys(j.signals).length:(j.signals_count||0)}</td>
       <td>${(j.placed||[]).map(o => o.side+' '+o.qty+' '+o.symbol).join('<br>')||'-'}</td>
       <td class="muted">${(j.skipped||[]).join('; ')||'-'}</td>
     </tr>`).join('');
@@ -180,10 +178,25 @@ async function runLiveTradeFromPanel() {
   const symbols = document.getElementById('liveSymbols').value.split(',').map(s=>s.trim()).filter(Boolean);
   const qty = Number(document.getElementById('liveQty').value)||10;
   showToast('Running live trade for '+sid+'...');
-  const res = await fetchJSON('/api/v1/live-trades/run', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({strategy_id:sid, symbols, qty})});
+  const res = await fetchJSON('/api/v1/live/trade', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({strategy_id:sid, symbols, qty})});
   showToast('Live trade job '+(res.job_id||'')+': '+((res.placed||[]).length)+' orders placed');
   loadLiveTradeJobs();
   refreshLive();
+}
+
+async function runStrategyLive(sid) {
+  showToast('Running live trade for '+sid+'...');
+  try {
+    const res = await fetchJSON('/api/v1/live/trade', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({strategy_id: sid, symbols: ['SPY','QQQ','AAPL'], qty: 10})
+    });
+    showToast('Live trade '+(res.job_id||'')+': '+((res.placed||[]).length)+' orders');
+    switchTab('live');
+    loadLiveTradeJobs();
+    refreshLive();
+  } catch(e) {}
 }
 
 async function runStrategyBacktest(sid) {
@@ -264,15 +277,17 @@ async function loadStrategies(page=0) {
     <td>${s.family}</td>
     <td>${s.engine}</td>
     <td>${(s.tags||[]).slice(0,3).join(', ')}</td>
-    <td><button class="btn small" onclick="runStrategyBacktest('${s.id}')">Backtest</button>
-        <button class="btn secondary small" onclick="showCode('${s.id}')">Code</button></td>
+    <td>
+      <button class="btn secondary small" onclick="showCode('${s.id}')">Code</button>
+      <button class="btn secondary small" onclick="runStrategyLive('${s.id}')">Live</button>
+      <button class="btn small" onclick="runStrategyBacktest('${s.id}')">Backtest</button>
+    </td>
   </tr>`).join('');
   const totalPages = Math.max(1, Math.ceil((res.total||0)/strategyPageSize));
   document.getElementById('strategiesPager').innerHTML = `
     <button class="btn secondary small" ${page<=0?'disabled':''} onclick="loadStrategies(${page-1})">Prev</button>
     <span class="muted">Page ${page+1} / ${totalPages} (${res.total||0} strategies)</span>
     <button class="btn secondary small" ${page+1>=totalPages?'disabled':''} onclick="loadStrategies(${page+1})">Next</button>`;
-  // fill filters once
   const catSel = document.getElementById('strategyCategory');
   if (catSel.options.length<=1) {
     (res.categories||[]).forEach(c => { const o=document.createElement('option'); o.value=c; o.textContent=c; catSel.appendChild(o); });
@@ -284,7 +299,7 @@ async function loadStrategies(page=0) {
 }
 
 async function showCode(sid) {
-  const res = await fetchJSON('/api/v1/strategies/'+sid+'/code');
+  const res = await fetchJSON('/api/v1/strategies/'+sid+'/python');
   document.getElementById('codeBox').textContent = res.code || res.python || JSON.stringify(res,null,2);
   document.getElementById('codeModal').classList.add('open');
 }
@@ -292,22 +307,25 @@ function closeCodeModal() { document.getElementById('codeModal').classList.remov
 
 async function generateExperiment() {
   const prompt = document.getElementById('labPrompt').value;
-  const exp = await fetchJSON('/api/v1/lab/experiments', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({prompt})});
-  showToast('Experiment '+exp.id+' generated ('+exp.strategy_family+')');
+  const exp = await fetchJSON('/api/v1/lab/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({prompt})});
+  showToast('Experiment '+(exp.id||'')+' generated');
   loadLab();
 }
 
 async function loadLab() {
-  const items = await fetchJSON('/api/v1/lab/experiments');
-  const el = document.getElementById('labResults');
-  el.innerHTML = (items||[]).map(e => `<div class="card">
-    <h3>${e.title||e.id}</h3>
-    <p class="muted">${e.hypothesis||e.prompt||''}</p>
-    <div class="form-row">
-      <button class="btn small" onclick="runLabBacktest('${e.id}')">Backtest</button>
-      <button class="btn secondary small" onclick="showCode('${e.strategy_id||e.id}')">Code</button>
-    </div>
-  </div>`).join('') || '<div class="muted">No experiments yet</div>';
+  try {
+    const items = await fetchJSON('/api/v1/lab/experiments');
+    const el = document.getElementById('labResults');
+    const list = Array.isArray(items) ? items : (items.items||[]);
+    el.innerHTML = list.map(e => `<div class="card">
+      <h3>${e.title||e.id}</h3>
+      <p class="muted">${e.hypothesis||e.prompt||''}</p>
+      <div class="form-row">
+        <button class="btn small" onclick="runLabBacktest('${e.id}')">Backtest</button>
+        <button class="btn secondary small" onclick="showCode('${e.strategy_id||e.id}')">Code</button>
+      </div>
+    </div>`).join('') || '<div class="muted">No experiments yet</div>';
+  } catch(e) {}
 }
 
 async function loadReporting() {
@@ -334,13 +352,18 @@ async function cleanSymbol() {
 }
 
 async function loadDataHealth() {
-  const rows = await fetchJSON('/api/v1/data/health');
-  document.querySelector('#dataHealthTable tbody').innerHTML = (rows||[]).map(r => `<tr><td>${r.source}</td><td>${badge(r.status)}</td><td>${r.last_update||'-'}</td><td>${r.latency_ms||'-'}</td><td class="muted">${r.error||''}</td></tr>`).join('');
+  try {
+    const rows = await fetchJSON('/api/v1/data/status');
+    document.querySelector('#dataHealthTable tbody').innerHTML = (rows||[]).map(r => `<tr><td>${r.source}</td><td>${badge(r.status)}</td><td>${r.last_update||'-'}</td><td>${r.latency_ms||'-'}</td><td class="muted">${r.error||''}</td></tr>`).join('');
+  } catch(e) {}
 }
 
 async function loadJobs() {
-  const jobs = await fetchJSON('/api/v1/ops/jobs');
-  document.querySelector('#jobsTable tbody').innerHTML = (jobs||[]).map(j => `<tr><td class="mono">${j.id}</td><td>${j.name}</td><td>${j.schedule||'-'}</td><td>${badge(j.status)}</td><td>${j.started_at||'-'}</td><td>${j.finished_at||'-'}</td><td class="muted">${(j.log||'').slice(0,80)}</td></tr>`).join('');
+  try {
+    const jobs = await fetchJSON('/api/v1/operations/jobs');
+    const list = Array.isArray(jobs) ? jobs : (jobs.items||[]);
+    document.querySelector('#jobsTable tbody').innerHTML = list.map(j => `<tr><td class="mono">${j.id}</td><td>${j.name}</td><td>${j.schedule||'-'}</td><td>${badge(j.status)}</td><td>${j.started_at||'-'}</td><td>${j.finished_at||'-'}</td><td class="muted">${(j.log||'').slice(0,80)}</td></tr>`).join('');
+  } catch(e) {}
 }
 
 async function loadSystem() {
@@ -382,21 +405,24 @@ document.getElementById('navLinks').addEventListener('click', e => {
   switchTab(a.dataset.tab);
 });
 
-document.getElementById('orderType').addEventListener('change', e => {
-  document.getElementById('orderPrice').disabled = e.target.value !== 'LIMIT';
-});
+if (document.getElementById('orderType')) {
+  document.getElementById('orderType').addEventListener('change', e => {
+    document.getElementById('orderPrice').disabled = e.target.value !== 'LIMIT';
+  });
+}
 
 async function loadSymbols() {
   try {
-    const quotes = await fetchJSON('/api/v1/market/quotes');
+    const quotes = await fetchJSON('/api/v1/market/snapshot');
     const sel = document.getElementById('orderSymbol');
-    sel.innerHTML = (quotes||[]).map(q => `<option value="${q.symbol}">${q.symbol}</option>`).join('');
+    const list = Array.isArray(quotes) ? quotes : (quotes.quotes||[]);
+    if (sel) sel.innerHTML = list.map(q => `<option value="${q.symbol}">${q.symbol}</option>`).join('');
   } catch(e) {}
 }
 
 function connectSSE() {
   try {
-    const es = new EventSource(API+'/api/v1/stream');
+    const es = new EventSource(API+'/api/v1/live/feed');
     es.onmessage = () => { document.getElementById('connStatus').style.background = '#00d4aa'; };
     es.onerror = () => { document.getElementById('connStatus').style.background = '#f43f5e'; };
   } catch(e) {}
