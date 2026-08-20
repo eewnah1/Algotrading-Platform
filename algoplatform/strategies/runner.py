@@ -120,3 +120,96 @@ class StrategyRunner:
             for date, val in s.items():
                 signals.setdefault(date, {})[sym] = int(val)
         return signals
+
+    def to_python(self) -> str:
+        """Return a runnable Python snippet for this strategy."""
+        params = self.strategy.params
+        family = self.strategy.family
+        lines = [
+            "import pandas as pd",
+            "import numpy as np",
+            "",
+            "def sma(s, w): return s.rolling(window=w, min_periods=1).mean()",
+            "def ema(s, w): return s.ewm(span=w, min_periods=1).mean()",
+            "def rsi(s, w=14):",
+            "    d = s.diff(); gain = d.where(d > 0, 0.0); loss = -d.where(d < 0, 0.0)",
+            "    ag = gain.rolling(w, min_periods=1).mean(); al = loss.rolling(w, min_periods=1).mean()",
+            "    rs = ag / al.replace(0, np.nan)",
+            "    return 100 - (100 / (1 + rs))",
+            "def bbands(s, w=20, st=2.0):",
+            "    ma = s.rolling(w, min_periods=1).mean(); sd = s.rolling(w, min_periods=1).std()",
+            "    return ma + st*sd, ma, ma - st*sd",
+            "",
+            f"# Strategy: {self.strategy.name}",
+            f"# Family: {family}",
+            f"# Params: {params}",
+            "def generate_signal(df: pd.DataFrame) -> int:",
+            '    close = df["Close"]',
+        ]
+        if family in ("sma_cross", "ema_cross"):
+            fast = int(params.get("fast", 10))
+            slow = int(params.get("slow", 30))
+            fn = "sma" if family == "sma_cross" else "ema"
+            lines += [
+                f"    fast = {fn}(close, {fast})",
+                f"    slow = {fn}(close, {slow})",
+                "    sig = np.where(fast > slow, 1, np.where(fast < slow, -1, 0))",
+            ]
+        elif family == "macd":
+            fast = int(params.get("fast", 12))
+            slow = int(params.get("slow", 26))
+            signal = int(params.get("signal", 9))
+            lines += [
+                f"    ema_fast = ema(close, {fast})",
+                f"    ema_slow = ema(close, {slow})",
+                "    macd_line = ema_fast - ema_slow",
+                f"    signal_line = ema(macd_line, {signal})",
+                "    sig = np.where(macd_line > signal_line, 1, np.where(macd_line < signal_line, -1, 0))",
+            ]
+        elif family == "rsi_mean_revert":
+            period = int(params.get("period", 14))
+            ob = params.get("overbought", 70)
+            os = params.get("oversold", 30)
+            lines += [
+                f"    r = rsi(close, {period})",
+                f"    sig = np.where(r < {os}, 1, np.where(r > {ob}, -1, 0))",
+            ]
+        elif family == "bollinger_revert":
+            period = int(params.get("period", 20))
+            std = float(params.get("std", 2.0))
+            lines += [
+                f"    upper, _, lower = bbands(close, {period}, {std})",
+                "    sig = np.where(close < lower, 1, np.where(close > upper, -1, 0))",
+            ]
+        elif family in ("breakout", "donchian_breakout", "volume_breakout", "range_break"):
+            lookback = int(params.get("lookback", 20))
+            lines += [
+                f"    upper = close.rolling({lookback}, min_periods=1).max().shift(1)",
+                f"    lower = close.rolling({lookback}, min_periods=1).min().shift(1)",
+                "    sig = np.where(close > upper, 1, np.where(close < lower, -1, 0))",
+            ]
+        elif family in ("momentum_12_1", "momentum_52_high", "momentum_etf_rotation"):
+            lookback = int(params.get("lookback", 20))
+            lines += [
+                f"    mom = close.pct_change({lookback})",
+                "    sig = np.where(mom > 0, 1, np.where(mom < 0, -1, 0))",
+            ]
+        elif family == "volatility_target":
+            lookback = int(params.get("lookback", 20))
+            target = float(params.get("target_vol", 0.15))
+            lines += [
+                f"    vol = close.pct_change().rolling({lookback}, min_periods=1).std() * np.sqrt(252)",
+                f"    sig = np.where(vol < {target}, 1, -1)",
+            ]
+        else:
+            lines += ["    sig = np.zeros(len(close), dtype=int)"]
+        lines += [
+            "    s = pd.Series(sig, index=close.index)",
+            "    s = s.where(s != 0).ffill().fillna(0).astype(int)",
+            "    return int(s.iloc[-1])",
+            "",
+            'if __name__ == "__main__":',
+            '    df = pd.read_csv("data.csv", parse_dates=True, index_col=0)',
+            '    print("Signal:", generate_signal(df))',
+        ]
+        return "\n".join(lines)

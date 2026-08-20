@@ -61,6 +61,22 @@
         </div>
       </div>
       <div class="card" style="margin-top:20px">
+        <h3>Strategy Live Trade</h3>
+        <div class="form-row">
+          <input id="liveStrategy" placeholder="Strategy ID" value="sma_cross_equity_long_000" />
+          <input id="liveSymbols" placeholder="Symbols comma separated" value="SPY,QQQ,AAPL" />
+          <input id="liveQty" type="number" placeholder="Qty" value="10" />
+          <select id="liveOrderType"><option value="MARKET">MARKET</option><option value="LIMIT">LIMIT</option></select>
+          <input id="livePrice" type="number" placeholder="Limit price" disabled />
+          <button class="btn" onclick="runLiveTradeFromPanel()">Run Live Trade</button>
+          <button class="btn secondary" onclick="loadLiveTradeJobs()">Refresh Jobs</button>
+        </div>
+        <div class="table-wrap" style="margin-top:12px"><table id="liveTradeJobsTable">
+          <thead><tr><th>Time</th><th>Job</th><th>Strategy</th><th>Signals</th><th>Orders</th><th>Skipped</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+      </div>
+      <div class="card" style="margin-top:20px">
         <h3>Order Entry</h3>
         <div class="form-row">
           <select id="orderSymbol"></select>
@@ -172,6 +188,12 @@
     <div id="system" class="section">
       <div class="grid grid-4" id="systemKpis"></div>
       <div class="card" style="margin-top:20px"><h3>API Health</h3><pre id="healthBox" class="code">Loading...</pre></div>
+    </div>
+  </div>
+  <div id="codeModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header"><h3>Strategy Python Code</h3><button class="btn secondary small" onclick="closeCodeModal()">Close</button></div>
+      <pre id="codeBox" class="code"></pre>
     </div>
   </div>
   <div id="toast"></div>

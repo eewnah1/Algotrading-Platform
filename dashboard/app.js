@@ -12,7 +12,7 @@ function showToast(msg) { toast.innerText = msg; toast.style.display = 'block'; 
 function switchTab(tab) {
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.dataset.tab===tab));
   document.querySelectorAll('.section').forEach(s => s.classList.toggle('active', s.id===tab));
-  if (tab==='live') loadLive();
+  if (tab==='live') { loadLive(); loadLiveTradeJobs(); }
   if (tab==='backtest') ;
   if (tab==='strategies') loadStrategiesMeta();
   if (tab==='lab') loadExperiments();
@@ -141,6 +141,9 @@ function populateOrderSymbols(quotes) {
 document.getElementById('orderType').addEventListener('change', e => {
   document.getElementById('orderPrice').disabled = e.target.value !== 'LIMIT';
 });
+document.getElementById('liveOrderType').addEventListener('change', e => {
+  document.getElementById('livePrice').disabled = e.target.value !== 'LIMIT';
+});
 
 async function placeOrder() {
   const payload = {
@@ -186,7 +189,11 @@ async function loadStrategies() {
     <td>${s.family}</td>
     <td>${s.engine}</td>
     <td>${(s.tags||[]).slice(0,3).map(t=>`<span class="tag">${t}</span>`).join(' ')}</td>
-    <td><button class="btn small" onclick="runStrategyBacktest('${s.id}')">Run</button></td>
+    <td>
+      <button class="btn small" onclick="showStrategyCode('${s.id}')">Code</button>
+      <button class="btn small" onclick="runLiveTrade('${s.id}')">Live</button>
+      <button class="btn small" onclick="runStrategyBacktest('${s.id}')">Backtest</button>
+    </td>
   </tr>`).join('');
   const pages = Math.ceil((res.total||0)/strategyLimit);
   const current = Math.floor(strategyOffset/strategyLimit)+1;
@@ -198,6 +205,52 @@ async function loadStrategies() {
 }
 
 function changePage(dir) { strategyOffset = Math.max(0, strategyOffset + dir*strategyLimit); loadStrategies(); }
+
+async function showStrategyCode(sid) {
+  const res = await fetchJSON('/api/v1/strategies/'+sid+'/python');
+  document.getElementById('codeBox').innerText = res.code;
+  document.getElementById('codeModal').style.display = 'flex';
+}
+function closeCodeModal() { document.getElementById('codeModal').style.display = 'none'; }
+
+async function runLiveTrade(sid) {
+  const symbols = prompt('Live trade symbols (comma separated):', 'SPY,QQQ,AAPL');
+  if (!symbols) return;
+  const qty = prompt('Quantity per signal:', '10');
+  if (!qty) return;
+  showToast('Running live trade for '+sid+'...');
+  const payload = {strategy_id: sid, symbols: symbols.split(',').map(s=>s.trim()), qty: parseInt(qty)};
+  const res = await fetchJSON('/api/v1/live/trade', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+  showToast('Live trade job '+res.job_id+': '+res.placed.length+' orders placed');
+  loadLiveTradeJobs();
+}
+
+async function runLiveTradeFromPanel() {
+  const sid = document.getElementById('liveStrategy').value;
+  const symbols = document.getElementById('liveSymbols').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const qty = parseInt(document.getElementById('liveQty').value) || 10;
+  const orderType = document.getElementById('liveOrderType').value;
+  const price = document.getElementById('livePrice').value;
+  showToast('Running live trade for '+sid+'...');
+  const payload = {strategy_id: sid, symbols, qty, order_type: orderType};
+  if (price && orderType === 'LIMIT') payload.price = parseFloat(price);
+  const res = await fetchJSON('/api/v1/live/trade', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+  showToast('Live trade job '+res.job_id+': '+res.placed.length+' orders placed');
+  loadLiveTradeJobs();
+}
+
+async function loadLiveTradeJobs() {
+  const res = await fetchJSON('/api/v1/live/trade/jobs?limit=20');
+  const tbody = document.querySelector('#liveTradeJobsTable tbody');
+  tbody.innerHTML = (res.items||[]).map(j => `<tr>
+    <td>${new Date(j.timestamp).toLocaleString()}</td>
+    <td class="mono small">${j.id}</td>
+    <td>${j.strategy_id}</td>
+    <td>${JSON.stringify(j.signals||{})}</td>
+    <td>${(j.placed||[]).map(o => o.side+' '+o.qty+' '+o.symbol).join('<br>')||'-'}</td>
+    <td class="muted">${(j.skipped||[]).join('; ')||'-'}</td>
+  </tr>`).join('');
+}
 
 async function runStrategyBacktest(sid) {
   document.getElementById('btStrategy').value = sid;
@@ -348,7 +401,7 @@ function updateLiveKpis(pf) {
 setInterval(() => {
   const active = document.querySelector('.section.active');
   if (!active) return;
-  if (active.id === 'live') loadLive();
+  if (active.id === 'live') { loadLive(); loadLiveTradeJobs(); }
   if (active.id === 'reporting') loadReporting();
   if (active.id === 'data') loadDataHealth();
   if (active.id === 'operations') loadJobs();

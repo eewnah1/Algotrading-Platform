@@ -1,8 +1,10 @@
 import logging
 import time
+import uuid
 from contextlib import asynccontextmanager
 from datetime import datetime
 from pathlib import Path
+from typing import Any
 
 import pandas as pd
 import psutil
@@ -37,6 +39,8 @@ registry = StrategyRegistry()
 lab = StrategyLab()
 scheduler = OpsScheduler()
 engine = BacktestEngine(market_data, registry=registry)
+
+live_jobs: dict[str, Any] = {}
 
 
 @asynccontextmanager
@@ -140,6 +144,86 @@ def get_performance() -> dict:
     return {"equity": hist, "metrics": metrics.model_dump()}
 
 
+@app.post("/api/v1/live/trade")
+def live_trade(payload: dict) -> dict:
+    strategy_id = payload.get("strategy_id")
+    if not strategy_id:
+        raise HTTPException(status_code=400, detail="strategy_id required")
+    runner = registry.get(strategy_id)
+    if not runner:
+        raise HTTPException(status_code=404, detail="strategy not found")
+    symbols = payload.get("symbols") or settings.default_universe[:5]
+    qty = int(payload.get("qty", 10))
+    order_type = payload.get("order_type", "MARKET").upper()
+    price = payload.get("price")
+    price_data: dict[str, pd.DataFrame] = {}
+    for sym in symbols:
+        df = market_data.get_history(sym, period="60d", interval="1d")
+        if not df.empty:
+            price_data[sym] = df
+    if not price_data:
+        raise HTTPException(status_code=400, detail="no market data available for requested symbols")
+    signals = runner.generate_signals(price_data)
+    if not signals:
+        raise HTTPException(status_code=400, detail="no signals generated")
+    latest_date = max(signals.keys())
+    latest_signals = signals.get(latest_date, {})
+    prices = {sym: float(df["Close"].iloc[-1]) for sym, df in price_data.items()}
+    broker = PaperBroker()
+    placed: list[dict] = []
+    skipped: list[str] = []
+    for sym, signal in latest_signals.items():
+        if signal == 0:
+            skipped.append(f"{sym}: flat signal")
+            continue
+        market_price = prices.get(sym)
+        if not market_price:
+            skipped.append(f"{sym}: no price")
+            continue
+        side = Side.BUY if signal > 0 else Side.SELL
+        limit_price = float(price) if price and order_type == "LIMIT" else None
+        order = broker.fill(
+            sym,
+            side,
+            qty,
+            market_price,
+            order_type=order_type,
+            limit_price=limit_price,
+            algo=strategy_id,
+        )
+        if order.status == OrderStatus.FAILED:
+            skipped.append(f"{sym}: order failed")
+            continue
+        portfolio.apply_fill(order, market_price)
+        placed.append(order.model_dump())
+    job_id = str(uuid.uuid4())[:8]
+    live_jobs[job_id] = {
+        "id": job_id,
+        "strategy_id": strategy_id,
+        "timestamp": datetime.utcnow().isoformat(),
+        "status": "completed",
+        "signals": latest_signals,
+        "placed": placed,
+        "skipped": skipped,
+    }
+    _update_portfolio()
+    return {"job_id": job_id, "status": "completed", "placed": placed, "skipped": skipped}
+
+
+@app.get("/api/v1/live/trade/jobs")
+def list_live_trade_jobs(limit: int = Query(20, ge=1, le=100)) -> dict:
+    items = sorted(live_jobs.values(), key=lambda j: j["timestamp"], reverse=True)[:limit]
+    return {"total": len(live_jobs), "items": items}
+
+
+@app.get("/api/v1/live/trade/jobs/{job_id}")
+def get_live_trade_job(job_id: str) -> dict:
+    job = live_jobs.get(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="job not found")
+    return job
+
+
 @app.get("/api/v1/strategies")
 def list_strategies(
     category: str | None = None,
@@ -165,6 +249,14 @@ def get_strategy(strategy_id: str) -> dict:
     if not s:
         raise HTTPException(status_code=404, detail="strategy not found")
     return s.model_dump()
+
+
+@app.get("/api/v1/strategies/{strategy_id}/python")
+def get_strategy_python(strategy_id: str) -> dict:
+    runner = registry.get(strategy_id)
+    if not runner:
+        raise HTTPException(status_code=404, detail="strategy not found")
+    return {"strategy_id": strategy_id, "code": runner.to_python()}
 
 
 @app.post("/api/v1/backtests/run", response_model=BacktestResult)
