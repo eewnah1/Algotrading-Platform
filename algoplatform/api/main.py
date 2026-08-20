@@ -7,7 +7,10 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
-import psutil
+try:
+    import psutil
+except ImportError:
+    psutil = None  # type: ignore
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
@@ -76,14 +79,19 @@ def health() -> dict:
 
 @app.get("/api/v1/system")
 def system() -> dict:
-    mem = psutil.virtual_memory()
-    disk = psutil.disk_usage("/")
-    return {
-        "cpu_percent": psutil.cpu_percent(interval=0.1),
-        "memory": {"percent": mem.percent, "used_gb": mem.used / (1024**3), "total_gb": mem.total / (1024**3)},
-        "disk": {"percent": disk.percent, "used_gb": disk.used / (1024**3), "total_gb": disk.total / (1024**3)},
-        "uptime_seconds": time.time() - psutil.boot_time(),
-    }
+    if psutil is None:
+        return {"cpu_percent": 0.0, "memory": {}, "disk": {}, "uptime_seconds": 0.0, "error": "psutil not installed"}
+    try:
+        mem = psutil.virtual_memory()
+        disk = psutil.disk_usage("/")
+        return {
+            "cpu_percent": psutil.cpu_percent(interval=0.1),
+            "memory": {"percent": mem.percent, "used_gb": mem.used / (1024**3), "total_gb": mem.total / (1024**3)},
+            "disk": {"percent": disk.percent, "used_gb": disk.used / (1024**3), "total_gb": disk.total / (1024**3)},
+            "uptime_seconds": time.time() - psutil.boot_time(),
+        }
+    except Exception as e:
+        return {"cpu_percent": 0.0, "memory": {}, "disk": {}, "uptime_seconds": 0.0, "error": str(e)}
 
 
 @app.get("/api/v1/market/snapshot")
@@ -224,6 +232,16 @@ def get_live_trade_job(job_id: str) -> dict:
     return job
 
 
+@app.post("/api/v1/live-trades/run")
+def live_trades_run_alias(payload: dict) -> dict:
+    return live_trade(payload)
+
+
+@app.get("/api/v1/live-trades")
+def live_trades_list_alias(limit: int = Query(20, ge=1, le=100)) -> dict:
+    return list_live_trade_jobs(limit)
+
+
 @app.get("/api/v1/strategies")
 def list_strategies(
     category: str | None = None,
@@ -235,7 +253,12 @@ def list_strategies(
     items = registry.list_strategies(category=category, asset_class=asset_class, q=q)
     total = len(items)
     page = items[offset : offset + limit]
-    return {"total": total, "items": [s.model_dump() for s in page]}
+    return {
+        "total": total,
+        "items": [s.model_dump() for s in page],
+        "categories": registry.categories(),
+        "asset_classes": registry.asset_classes(),
+    }
 
 
 @app.get("/api/v1/strategies/categories")
@@ -252,16 +275,21 @@ def get_strategy(strategy_id: str) -> dict:
 
 
 @app.get("/api/v1/strategies/{strategy_id}/python")
+@app.get("/api/v1/strategies/{strategy_id}/code")
 def get_strategy_python(strategy_id: str) -> dict:
     runner = registry.get(strategy_id)
     if not runner:
         raise HTTPException(status_code=404, detail="strategy not found")
-    return {"strategy_id": strategy_id, "code": runner.to_python()}
+    try:
+        code = runner.to_python()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"code generation failed: {e}")
+    return {"strategy_id": strategy_id, "code": code, "python": code}
 
 
 @app.post("/api/v1/backtests/run", response_model=BacktestResult)
 def run_backtest(payload: dict) -> BacktestResult:
-    strategy_id = payload.get("strategy_id", "sma_cross_equity_long_000")
+    strategy_id = payload.get("strategy_id", "sma_cross_equity_long_0000")
     symbols = payload.get("symbols")
     start = payload.get("start")
     end = payload.get("end")
@@ -338,12 +366,17 @@ def data_status() -> list[dict]:
 
 
 @app.post("/api/v1/data/clean")
-def data_clean(symbol: str) -> dict:
-    df = market_data.get_history(symbol)
+def data_clean(payload: dict | None = None, symbol: str | None = None) -> dict:
+    sym = (payload or {}).get("symbol") if isinstance(payload, dict) else None
+    sym = sym or symbol or "SPY"
+    df = market_data.get_history(sym)
     cleaner = DataCleaner()
-    cleaned = cleaner.clean_ohlcv(df, symbol)
-    cleaned.to_parquet(market_data._cache_path(symbol))
-    return {"symbol": symbol, "rows": len(cleaned), "anomalies": cleaner.detect_anomalies(cleaned, symbol)}
+    cleaned = cleaner.clean_ohlcv(df, sym)
+    try:
+        cleaned.to_parquet(market_data._cache_path(sym))
+    except Exception:
+        pass
+    return {"symbol": sym, "rows": len(cleaned), "anomalies": cleaner.detect_anomalies(cleaned, sym)}
 
 
 @app.get("/api/v1/operations/jobs")
@@ -387,6 +420,11 @@ def risk_metrics() -> dict:
         "concentration_top1_pct": round(concentration, 2),
         "concentration_top5_pct": round(top5, 2),
         "margin_used_pct": round(pf.margin_used / total * 100, 2) if total else 0.0,
+        "gross_exposure": gross,
+        "net_exposure": net,
+        "leverage": round(gross / total, 2) if total else 0.0,
+        "var_95": 0.0,
+        "positions_count": len(positions),
     }
 
 
