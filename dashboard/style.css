@@ -125,6 +125,7 @@ pre.code {
   display: none; position: fixed; z-index: 300; left: 0; top: 0; width: 100%; height: 100%;
   background: rgba(0,0,0,0.7); align-items: center; justify-content: center;
 }
+.modal.open { display: flex; }
 .modal-content {
   background: var(--panel); border: 1px solid var(--border); border-radius: 14px; width: 90%; max-width: 900px; max-height: 90%;
   display: flex; flex-direction: column; overflow: hidden;
@@ -144,5 +145,3 @@ pre.code {
 .lob-row.ask { background: rgba(248,113,113,0.08); color: var(--danger); }
 .lob-mid { text-align: center; font-weight: 700; padding: 8px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--text); }
 .lob-header { display: flex; justify-content: space-between; padding: 0 10px; color: var(--muted); font-size: 0.72rem; text-transform: uppercase; }
-
-.btn.small { padding: 4px 10px; font-size: 0.75rem; }
